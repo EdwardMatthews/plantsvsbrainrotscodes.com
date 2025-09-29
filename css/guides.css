@@ -33,7 +33,7 @@
 }
 
 .gameplay-header {
-    background: linear-gradient(135deg, #6A0DAD 0%, #8B5CF6 100%);
+    background: #00DC82;
 }
 
 .rebirth-header {
@@ -215,7 +215,7 @@
 
 .plant-detailed:hover {
     border-color: var(--primary-color);
-    box-shadow: 0 5px 20px rgba(124, 58, 237, 0.2);
+    box-shadow: 0 5px 20px rgba(0, 220, 130, 0.2);
 }
 
 .plant-header {
@@ -356,7 +356,7 @@
 .mutation-card:hover {
     transform: translateY(-3px);
     border-color: var(--primary-color);
-    box-shadow: 0 5px 15px rgba(124, 58, 237, 0.2);
+    box-shadow: 0 5px 15px rgba(0, 220, 130, 0.2);
 }
 
 .mutation-card h3 {

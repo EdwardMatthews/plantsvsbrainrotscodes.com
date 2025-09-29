@@ -151,7 +151,7 @@ body {
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, #00DC82 0%, #00B4D8 100%);
     opacity: 0.1;
     animation: gradientShift 10s ease infinite;
 }
@@ -865,5 +865,5 @@ footer {
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: #6b2fc7;
+    background: #00B868;
 }
