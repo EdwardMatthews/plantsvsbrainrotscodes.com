@@ -1,17 +1,37 @@
 :root {
-    --primary-color: #7c3aed;
-    --secondary-color: #10b981;
-    --accent-color: #f59e0b;
-    --dark-bg: #0f172a;
-    --dark-bg-secondary: #1e293b;
-    --text-primary: #f1f5f9;
-    --text-secondary: #cbd5e1;
-    --border-color: #334155;
-    --success-color: #22c55e;
-    --danger-color: #ef4444;
-    --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    --gradient-secondary: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-    --gradient-dark: linear-gradient(180deg, #0f172a 0%, #1e293b 100%);
+    /* Primary Brand Colors - Plants vs Brainrots Gaming Theme */
+    --primary-color: #00DC82;        /* Vibrant Green - Plants/Nature */
+    --secondary-color: #FF006E;      /* Electric Pink - Brainrot/Memes */
+    --accent-color: #FFD23F;         /* Sunny Yellow - Coins/Rewards */
+
+    /* Supporting Gaming Colors */
+    --tertiary-color: #6A0DAD;       /* Deep Purple - Mutations/Rare */
+    --info-color: #00B4D8;           /* Sky Blue - Water/Info */
+    --warning-color: #FF6B35;        /* Orange - Fire/Warnings */
+
+    /* UI Foundation */
+    --dark-bg: #0A0E1A;               /* Deep Gaming Black */
+    --dark-bg-secondary: #141B2E;    /* Card Background */
+    --dark-bg-tertiary: #1D2943;     /* Hover States */
+
+    /* Text Hierarchy */
+    --text-primary: #FFFFFF;          /* Pure White */
+    --text-secondary: #B8C5D6;       /* Light Blue-Gray */
+    --text-muted: #8B98A9;          /* Muted Text */
+
+    /* Borders & Dividers */
+    --border-color: #2A3F5F;          /* Blue-Gray Border */
+    --border-hover: #3D5A80;         /* Hover Border */
+
+    /* Status Colors */
+    --success-color: #00DC82;        /* Green Success */
+    --danger-color: #FF006E;         /* Pink Danger */
+
+    /* Gaming Gradients */
+    --gradient-primary: linear-gradient(135deg, #00DC82 0%, #00B4D8 100%);  /* Green to Blue */
+    --gradient-secondary: linear-gradient(135deg, #FF006E 0%, #FF6B35 100%); /* Pink to Orange */
+    --gradient-dark: linear-gradient(180deg, #0A0E1A 0%, #141B2E 100%);     /* Dark Gaming BG */
+    --gradient-gaming: linear-gradient(135deg, #00DC82 0%, #FFD23F 50%, #FF006E 100%); /* Full Spectrum */
 }
 
 * {
@@ -36,7 +56,7 @@ body {
 
 /* Navigation */
 .navbar {
-    background: rgba(15, 23, 42, 0.95);
+    background: rgba(10, 14, 26, 0.95);
     backdrop-filter: blur(10px);
     position: fixed;
     top: 0;
@@ -221,7 +241,7 @@ body {
     left: -100%;
     width: 100%;
     height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(124, 58, 237, 0.2), transparent);
+    background: linear-gradient(90deg, transparent, rgba(0, 220, 130, 0.2), transparent);
     transition: left 0.6s ease;
 }
 
@@ -232,7 +252,7 @@ body {
 .code-card:hover {
     transform: translateY(-5px);
     border-color: var(--primary-color);
-    box-shadow: 0 10px 30px rgba(124, 58, 237, 0.3);
+    box-shadow: 0 10px 30px rgba(0, 220, 130, 0.3);
 }
 
 .code-header {
@@ -286,7 +306,7 @@ body {
 }
 
 .copy-btn:hover {
-    background: #6b2fc7;
+    background: #00B868;
     transform: scale(1.05);
 }
 
@@ -323,9 +343,9 @@ body {
 }
 
 .btn-primary:hover {
-    background: #6b2fc7;
+    background: #00B868;
     transform: translateY(-2px);
-    box-shadow: 0 10px 25px rgba(124, 58, 237, 0.4);
+    box-shadow: 0 10px 25px rgba(0, 220, 130, 0.4);
 }
 
 .btn-secondary {
@@ -390,7 +410,7 @@ section {
 .feature-card:hover {
     transform: translateY(-5px);
     border-color: var(--primary-color);
-    box-shadow: 0 10px 30px rgba(124, 58, 237, 0.2);
+    box-shadow: 0 10px 30px rgba(0, 220, 130, 0.2);
 }
 
 .feature-icon {
@@ -545,7 +565,7 @@ section {
 .plant-card:hover {
     transform: translateY(-5px);
     border-color: var(--primary-color);
-    box-shadow: 0 10px 30px rgba(124, 58, 237, 0.2);
+    box-shadow: 0 10px 30px rgba(0, 220, 130, 0.2);
 }
 
 .plant-card h3 {
@@ -574,17 +594,17 @@ section {
 }
 
 .rarity.epic {
-    background: #8b5cf6;
+    background: var(--tertiary-color);
     color: white;
 }
 
 .rarity.legendary {
-    background: #f59e0b;
-    color: white;
+    background: var(--accent-color);
+    color: #0A0E1A;
 }
 
 .rarity.mythic {
-    background: #ef4444;
+    background: var(--secondary-color);
     color: white;
 }
 
@@ -698,7 +718,7 @@ section {
 
 /* Footer */
 footer {
-    background: #0a0f1c;
+    background: var(--dark-bg);
     padding: 3rem 0 1rem;
     border-top: 1px solid var(--border-color);
 }
