@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plants vs Brainrots Wiki - Complete Game Encyclopedia</title>
+    <meta name="description" content="Plants vs Brainrots Wiki - Complete game guide with all plants, brainrots, codes, fusion recipes, boss strategies. Your PvB encyclopedia for mastering the game.">
+    <meta name="keywords" content="plants vs brainrots wiki, pvb wiki, plants vs brainrots guide, pvb encyclopedia, roblox plants vs brainrots">
+    <meta property="og:title" content="Plants vs Brainrots Wiki - Complete Game Guide">
+    <meta property="og:description" content="The ultimate Plants vs Brainrots wiki with comprehensive guides, strategies, and game information.">
+    <meta property="og:url" content="https://plantsvsbrainrotscodes.com/wiki">
+    <meta property="og:type" content="website">
+    <link rel="canonical" href="https://plantsvsbrainrotscodes.com/wiki">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .wiki-container {
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        .wiki-sidebar {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            padding: 1.5rem;
+            position: sticky;
+            top: 100px;
+            height: fit-content;
+            max-height: calc(100vh - 120px);
+            overflow-y: auto;
+        }
+        .wiki-sidebar h3 {
+            color: #a78bfa;
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+        .wiki-nav {
+            list-style: none;
+            padding: 0;
+        }
+        .wiki-nav li {
+            margin-bottom: 0.5rem;
+        }
+        .wiki-nav a {
+            color: #e0e7ff;
+            text-decoration: none;
+            display: block;
+            padding: 0.5rem;
+            border-radius: 6px;
+            transition: background 0.3s;
+        }
+        .wiki-nav a:hover {
+            background: rgba(124, 58, 237, 0.2);
+        }
+        .wiki-content {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            padding: 2rem;
+        }
+        .wiki-section {
+            margin-bottom: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .wiki-section:last-child {
+            border-bottom: none;
+        }
+        .wiki-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        .wiki-card {
+            background: rgba(124, 58, 237, 0.1);
+            padding: 1rem;
+            border-radius: 8px;
+            border: 1px solid rgba(124, 58, 237, 0.3);
+        }
+        .wiki-card h4 {
+            color: #c4b5fd;
+            margin-bottom: 0.5rem;
+        }
+        .wiki-card p {
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+        .wiki-card a {
+            color: #a78bfa;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .wiki-card a:hover {
+            text-decoration: underline;
+        }
+        .quick-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+        .stat-box {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 1rem;
+            border-radius: 8px;
+            text-align: center;
+        }
+        .stat-number {
+            font-size: 2rem;
+            font-weight: bold;
+            display: block;
+        }
+        .stat-label {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+        .wiki-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1rem;
+        }
+        .wiki-table th {
+            background: rgba(124, 58, 237, 0.2);
+            padding: 0.75rem;
+            text-align: left;
+            border: 1px solid rgba(124, 58, 237, 0.3);
+        }
+        .wiki-table td {
+            padding: 0.75rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .wiki-search {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 0.75rem;
+            border-radius: 8px;
+            width: 100%;
+            color: white;
+            margin-bottom: 1.5rem;
+        }
+        .wiki-search::placeholder {
+            color: rgba(255, 255, 255, 0.5);
+        }
+        @media (max-width: 768px) {
+            .wiki-container {
+                grid-template-columns: 1fr;
+            }
+            .wiki-sidebar {
+                position: static;
+                max-height: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <a href="/">Plants vs Brainrots Codes</a>
+            </div>
+            <button class="nav-toggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-menu">
+                <li><a href="/">Home</a></li>
+                <li><a href="/codes">Codes</a></li>
+                <li><a href="/wiki" class="active">Wiki</a></li>
+                <li><a href="/gameplay">How to Play</a></li>
+                <li><a href="/plants">Plants</a></li>
+                <li><a href="/brainrots">Brainrots</a></li>
+                <li><a href="/bosses">Bosses</a></li>
+                <li><a href="/fusion">Fusion</a></li>
+                <li><a href="/rebirth">Rebirth</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="hero-section">
+        <div class="container">
+            <h1>Plants vs Brainrots Wiki</h1>
+            <p>The Complete Encyclopedia for Plants vs Brainrots</p>
+        </div>
+    </div>
+
+    <main class="container">
+        <div class="wiki-container">
+            <aside class="wiki-sidebar">
+                <input type="text" class="wiki-search" placeholder="Search wiki..." onkeyup="searchWiki(this.value)">
+                <h3>Wiki Contents</h3>
+                <ul class="wiki-nav">
+                    <li><a href="#overview">Game Overview</a></li>
+                    <li><a href="#quick-stats">Quick Stats</a></li>
+                    <li><a href="#game-modes">Game Modes</a></li>
+                    <li><a href="#units">Units & Characters</a></li>
+                    <li><a href="#systems">Game Systems</a></li>
+                    <li><a href="#strategies">Strategies</a></li>
+                    <li><a href="#codes-rewards">Codes & Rewards</a></li>
+                    <li><a href="#progression">Progression Guide</a></li>
+                    <li><a href="#economy">Economy System</a></li>
+                    <li><a href="#reference">Quick Reference</a></li>
+                </ul>
+            </aside>
+
+            <div class="wiki-content">
+                <section id="overview" class="wiki-section">
+                    <h2>Plants vs Brainrots Wiki Overview</h2>
+                    <p>Welcome to the comprehensive Plants vs Brainrots wiki, your ultimate resource for mastering this Roblox tower defense game. This wiki contains detailed information about every aspect of PvB, from basic gameplay mechanics to advanced fusion strategies. Whether you're defending against brain rot enemies for the first time or optimizing mythic plant combinations, this Plants vs Brainrots wiki has everything you need.</p>
+
+                    <div class="info-box">
+                        <h3>About Plants vs Brainrots</h3>
+                        <p>Plants vs Brainrots (PvB) is a tower defense game on Roblox where players strategically place plants to defend against waves of brain rot enemies. Created by Yo Gurt Studio, the game features unique mechanics including plant fusion, rebirth systems, and epic boss battles. This wiki covers all game elements to help players progress efficiently.</p>
+                    </div>
+                </section>
+
+                <section id="quick-stats" class="wiki-section">
+                    <h2>Game Statistics</h2>
+                    <div class="quick-stats">
+                        <div class="stat-box">
+                            <span class="stat-number">50+</span>
+                            <span class="stat-label">Unique Plants</span>
+                        </div>
+                        <div class="stat-box">
+                            <span class="stat-number">30+</span>
+                            <span class="stat-label">Enemy Types</span>
+                        </div>
+                        <div class="stat-box">
+                            <span class="stat-number">100+</span>
+                            <span class="stat-label">Fusion Recipes</span>
+                        </div>
+                        <div class="stat-box">
+                            <span class="stat-number">5</span>
+                            <span class="stat-label">Boss Levels</span>
+                        </div>
+                        <div class="stat-box">
+                            <span class="stat-number">6</span>
+                            <span class="stat-label">Rarity Tiers</span>
+                        </div>
+                        <div class="stat-box">
+                            <span class="stat-number">10</span>
+                            <span class="stat-label">Rebirth Levels</span>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="game-modes" class="wiki-section">
+                    <h2>Game Modes & Features</h2>
+                    <p>The Plants vs Brainrots wiki covers all available game modes and features. Each mode offers unique challenges and rewards for different playstyles.</p>
+
+                    <div class="wiki-grid">
+                        <div class="wiki-card">
+                            <h4>Story Mode</h4>
+                            <p>Progress through 50 waves defending your garden. Face increasingly difficult brain rot enemies.</p>
+                            <a href="/gameplay">Learn More →</a>
+                        </div>
+                        <div class="wiki-card">
+                            <h4>Endless Mode</h4>
+                            <p>Test your limits against infinite waves. Compete for leaderboard positions.</p>
+                            <a href="/gameplay#endless">View Details →</a>
+                        </div>
+                        <div class="wiki-card">
+                            <h4>Boss Rush</h4>
+                            <p>Challenge all five bosses in sequence. Earn exclusive rewards and prestige.</p>
+                            <a href="/bosses">Boss Strategies →</a>
+                        </div>
+                        <div class="wiki-card">
+                            <h4>Daily Challenges</h4>
+                            <p>Complete special objectives for bonus rewards. New challenges every 24 hours.</p>
+                            <a href="/gameplay#challenges">View Challenges →</a>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="units" class="wiki-section">
+                    <h2>Units & Characters Encyclopedia</h2>
+                    <p>This section of the Plants vs Brainrots wiki catalogs all playable units and enemy types in the game.</p>
+
+                    <h3>Plant Units</h3>
+                    <p>Plants are your primary defense against brain rot invasions. The PvB wiki tracks over 50 unique plants across six rarity tiers.</p>
+
+                    <table class="wiki-table">
+                        <thead>
+                            <tr>
+                                <th>Rarity</th>
+                                <th>Drop Rate</th>
+                                <th>Example Plants</th>
+                                <th>Key Features</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td style="color: #9ca3af;">Common</td>
+                                <td>40%</td>
+                                <td>Peashooter, Sunflower</td>
+                                <td>Basic defense, low cost</td>
+                            </tr>
+                            <tr>
+                                <td style="color: #60a5fa;">Uncommon</td>
+                                <td>30%</td>
+                                <td>Repeater, Twin Sunflower</td>
+                                <td>Improved stats, special abilities</td>
+                            </tr>
+                            <tr>
+                                <td style="color: #22c55e;">Rare</td>
+                                <td>20%</td>
+                                <td>Gatling Pea, Gold Bloom</td>
+                                <td>Area damage, resource generation</td>
+                            </tr>
+                            <tr>
+                                <td style="color: #a855f7;">Epic</td>
+                                <td>8%</td>
+                                <td>Winter Melon, Tile Turnip</td>
+                                <td>Crowd control, buff abilities</td>
+                            </tr>
+                            <tr>
+                                <td style="color: #f59e0b;">Legendary</td>
+                                <td>1.9%</td>
+                                <td>Plasma Pea, Sun God</td>
+                                <td>Massive damage, unique mechanics</td>
+                            </tr>
+                            <tr>
+                                <td style="color: #ef4444;">Mythic</td>
+                                <td>0.1%</td>
+                                <td>Shadow Peashooter, Eclipse</td>
+                                <td>Game-changing abilities</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <p><a href="/plants" class="btn-primary">View All Plants →</a></p>
+
+                    <h3>Enemy Types</h3>
+                    <p>Brain rot enemies come in various forms, each requiring different strategies. This wiki section helps identify threats.</p>
+
+                    <div class="wiki-grid">
+                        <div class="wiki-card">
+                            <h4>Basic Brainrots</h4>
+                            <p>Standard enemies with predictable patterns. Low health but appear in large numbers.</p>
+                            <a href="/brainrots#basic">View List →</a>
+                        </div>
+                        <div class="wiki-card">
+                            <h4>Elite Brainrots</h4>
+                            <p>Tougher variants with special abilities. Require focused fire to eliminate.</p>
+                            <a href="/brainrots#elite">View List →</a>
+                        </div>
+                        <div class="wiki-card">
+                            <h4>Boss Brainrots</h4>
+                            <p>Massive health pools and devastating attacks. Appear at wave milestones.</p>
+                            <a href="/bosses">Boss Guide →</a>
+                        </div>
+                        <div class="wiki-card">
+                            <h4>Special Events</h4>
+                            <p>Limited-time enemies during events. Drop exclusive rewards when defeated.</p>
+                            <a href="/brainrots#special">Event Enemies →</a>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="systems" class="wiki-section">
+                    <h2>Core Game Systems</h2>
+                    <p>Understanding these systems is crucial for progression. The Plants vs Brainrots wiki provides detailed guides for each mechanic.</p>
+
+                    <h3>Fusion System</h3>
+                    <p>Combine plants to create powerful hybrids. The fusion system is key to reaching higher waves in PvB.</p>
+                    <ul>
+                        <li>Basic Fusion: Combine two identical plants for stat boost</li>
+                        <li>Advanced Fusion: Mix different plants for unique abilities</li>
+                        <li>Mythic Fusion: Ultimate combinations requiring specific recipes</li>
+                        <li>Fusion Calculator: Plan your combinations efficiently</li>
+                    </ul>
+                    <p><a href="/fusion" class="btn-primary">Fusion Recipes →</a></p>
+
+                    <h3>Rebirth System</h3>
+                    <p>Reset progress for permanent multipliers. Each rebirth in Plants vs Brainrots unlocks new content.</p>
+                    <table class="wiki-table">
+                        <thead>
+                            <tr>
+                                <th>Rebirth Level</th>
+                                <th>Requirement</th>
+                                <th>Income Multiplier</th>
+                                <th>Unlocks</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Rebirth 1</td>
+                                <td>$50,000</td>
+                                <td>2x</td>
+                                <td>Uncommon plants, Basic fusion</td>
+                            </tr>
+                            <tr>
+                                <td>Rebirth 2</td>
+                                <td>$250,000</td>
+                                <td>4x</td>
+                                <td>Rare plants, Advanced fusion</td>
+                            </tr>
+                            <tr>
+                                <td>Rebirth 3</td>
+                                <td>$1,000,000</td>
+                                <td>8x</td>
+                                <td>Epic plants, Boss challenges</td>
+                            </tr>
+                            <tr>
+                                <td>Rebirth 5</td>
+                                <td>$10,000,000</td>
+                                <td>32x</td>
+                                <td>Legendary plants, Endless mode</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <p><a href="/rebirth" class="btn-primary">Rebirth Guide →</a></p>
+
+                    <h3>Economy & Resources</h3>
+                    <p>Managing resources efficiently accelerates progression. The wiki tracks all economic systems.</p>
+                    <div class="wiki-grid">
+                        <div class="wiki-card">
+                            <h4>Cash Generation</h4>
+                            <p>Primary currency for buying plants. Generated by sunflowers and defeating enemies.</p>
+                        </div>
+                        <div class="wiki-card">
+                            <h4>Seeds & Gems</h4>
+                            <p>Premium currency for special plants. Obtained from bosses and codes.</p>
+                        </div>
+                        <div class="wiki-card">
+                            <h4>Lucky Potions</h4>
+                            <p>Temporary boosts to drop rates. Stack multiple for best results.</p>
+                        </div>
+                        <div class="wiki-card">
+                            <h4>Income Scaling</h4>
+                            <p>Exponential growth through rebirths. Plan your economy for late game.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="strategies" class="wiki-section">
+                    <h2>Strategy Guides</h2>
+                    <p>Master Plants vs Brainrots with proven strategies from top players. This wiki section covers tactics for all skill levels.</p>
+
+                    <h3>Beginner Strategies</h3>
+                    <ul>
+                        <li><strong>Early Game Focus:</strong> Prioritize sunflower placement for economy</li>
+                        <li><strong>Basic Defense:</strong> Create overlapping fields of fire with peashooters</li>
+                        <li><strong>Wave Management:</strong> Save powerful plants for tough waves</li>
+                        <li><strong>Code Usage:</strong> Redeem all active codes for free resources</li>
+                    </ul>
+
+                    <h3>Advanced Tactics</h3>
+                    <ul>
+                        <li><strong>Fusion Timing:</strong> Wait for 2x events before major fusions</li>
+                        <li><strong>Boss Preparation:</strong> Build specific counters for each boss</li>
+                        <li><strong>Rebirth Optimization:</strong> Calculate exact rebirth timing for maximum efficiency</li>
+                        <li><strong>Endless Mode:</strong> Focus on scaling damage over static defense</li>
+                    </ul>
+                    <p><a href="/gameplay#tips" class="btn-primary">All Strategies →</a></p>
+                </section>
+
+                <section id="codes-rewards" class="wiki-section">
+                    <h2>Codes & Rewards System</h2>
+                    <p>Free rewards through codes are essential for progression. The Plants vs Brainrots wiki maintains an updated list of all codes.</p>
+
+                    <div class="info-box">
+                        <h3>Active Code Categories</h3>
+                        <ul>
+                            <li><strong>Cash Codes:</strong> Instant money for plant purchases</li>
+                            <li><strong>Seed Codes:</strong> Random plant seeds of various rarities</li>
+                            <li><strong>Boost Codes:</strong> Temporary multipliers and potions</li>
+                            <li><strong>Event Codes:</strong> Limited-time rewards during special events</li>
+                        </ul>
+                    </div>
+                    <p><a href="/codes" class="btn-primary">View All Codes →</a></p>
+                </section>
+
+                <section id="progression" class="wiki-section">
+                    <h2>Progression Path</h2>
+                    <p>Follow this recommended progression path documented in the Plants vs Brainrots wiki for optimal advancement.</p>
+
+                    <ol>
+                        <li><strong>Waves 1-10:</strong> Learn basic mechanics, place first plants</li>
+                        <li><strong>Waves 11-25:</strong> Experiment with plant combinations</li>
+                        <li><strong>Wave 25:</strong> Defeat first boss - Caseoh</li>
+                        <li><strong>Waves 26-50:</strong> Build economy for first rebirth</li>
+                        <li><strong>First Rebirth:</strong> Unlock new content and multipliers</li>
+                        <li><strong>Rebirth 1-3:</strong> Access rare plants and fusion</li>
+                        <li><strong>Rebirth 4-6:</strong> Challenge higher tier bosses</li>
+                        <li><strong>Rebirth 7-10:</strong> Endless mode and leaderboard competition</li>
+                        <li><strong>End Game:</strong> Mythic plant collection and perfection</li>
+                    </ol>
+                </section>
+
+                <section id="economy" class="wiki-section">
+                    <h2>Economy Management</h2>
+                    <p>Efficient resource management separates good players from great ones. This Plants vs Brainrots wiki section covers economic optimization.</p>
+
+                    <h3>Income Sources Ranked</h3>
+                    <table class="wiki-table">
+                        <thead>
+                            <tr>
+                                <th>Source</th>
+                                <th>Efficiency</th>
+                                <th>Best Time</th>
+                                <th>Notes</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Sunflowers</td>
+                                <td>⭐⭐⭐⭐⭐</td>
+                                <td>Early Game</td>
+                                <td>Essential for economy foundation</td>
+                            </tr>
+                            <tr>
+                                <td>Enemy Defeats</td>
+                                <td>⭐⭐⭐⭐</td>
+                                <td>Mid Game</td>
+                                <td>Scales with wave difficulty</td>
+                            </tr>
+                            <tr>
+                                <td>Boss Rewards</td>
+                                <td>⭐⭐⭐⭐⭐</td>
+                                <td>Milestones</td>
+                                <td>Massive one-time payouts</td>
+                            </tr>
+                            <tr>
+                                <td>Code Redemption</td>
+                                <td>⭐⭐⭐</td>
+                                <td>Anytime</td>
+                                <td>Free resources, check daily</td>
+                            </tr>
+                            <tr>
+                                <td>Rebirth Bonus</td>
+                                <td>⭐⭐⭐⭐⭐</td>
+                                <td>Late Game</td>
+                                <td>Permanent multipliers</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </section>
+
+                <section id="reference" class="wiki-section">
+                    <h2>Quick Reference</h2>
+                    <p>Essential information for Plants vs Brainrots players. Bookmark this wiki section for quick access.</p>
+
+                    <div class="wiki-grid">
+                        <div class="wiki-card">
+                            <h4>Wave Checkpoints</h4>
+                            <ul>
+                                <li>Wave 25: Caseoh Boss</li>
+                                <li>Wave 50: Quandale Boss</li>
+                                <li>Wave 75: Shmlawg Boss</li>
+                                <li>Wave 100: Chef Boss</li>
+                                <li>Wave 125: Dragon Boss</li>
+                            </ul>
+                        </div>
+                        <div class="wiki-card">
+                            <h4>Best Plants by Role</h4>
+                            <ul>
+                                <li>DPS: Plasma Pea</li>
+                                <li>AOE: Winter Melon</li>
+                                <li>Support: Tile Turnip</li>
+                                <li>Economy: Gold Bloom</li>
+                                <li>Tank: Wall-nut</li>
+                            </ul>
+                        </div>
+                        <div class="wiki-card">
+                            <h4>Fusion Priority</h4>
+                            <ul>
+                                <li>1. Sunflower + Twin</li>
+                                <li>2. Peashooter + Repeater</li>
+                                <li>3. Wall-nut + Tall-nut</li>
+                                <li>4. Snow Pea + Winter</li>
+                                <li>5. Cherry + Jalapeno</li>
+                            </ul>
+                        </div>
+                        <div class="wiki-card">
+                            <h4>Daily Checklist</h4>
+                            <ul>
+                                <li>✓ Redeem new codes</li>
+                                <li>✓ Complete daily quest</li>
+                                <li>✓ Check event rotation</li>
+                                <li>✓ Claim login bonus</li>
+                                <li>✓ Join group rewards</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="wiki-section">
+                    <h2>Community Resources</h2>
+                    <p>The Plants vs Brainrots wiki is maintained by the community. Connect with other players for tips and updates.</p>
+
+                    <div class="community-links">
+                        <a href="https://discord.gg/plantsvbrainrots" target="_blank" rel="noopener" class="btn-primary">Join Discord</a>
+                        <a href="https://www.roblox.com/games/127742093697776/Plants-Vs-Brainrots" target="_blank" rel="noopener" class="btn-secondary">Play Game</a>
+                        <a href="/help" class="btn-secondary">Help Center</a>
+                    </div>
+                </section>
+
+                <div class="info-box" style="margin-top: 2rem;">
+                    <p><strong>Wiki Update Schedule:</strong> This Plants vs Brainrots wiki is updated weekly with new strategies, codes, and game changes. Last major update included new fusion recipes and boss strategies. Check back regularly for the latest PvB information.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="/codes">Latest Codes</a></li>
+                        <li><a href="/gameplay">How to Play</a></li>
+                        <li><a href="/help">Help Center</a></li>
+                        <li><a href="/gameplay#beginner">Beginner's Guide</a></li>
+                        <li><a href="https://www.roblox.com/games/127742093697776/Plants-Vs-Brainrots" target="_blank" rel="noopener">Play Game</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Game Guides</h4>
+                    <ul>
+                        <li><a href="/plants">All Plants</a></li>
+                        <li><a href="/brainrots">All Brainrots</a></li>
+                        <li><a href="/bosses">Boss Strategies</a></li>
+                        <li><a href="/fusion">Fusion Recipes</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Game Systems</h4>
+                    <ul>
+                        <li><a href="/rebirth">Rebirth Guide</a></li>
+                        <li><a href="/brainrots#income">Income Strategy</a></li>
+                        <li><a href="/gameplay#tips">Tips & Tricks</a></li>
+                        <li><a href="/codes#how-to-redeem">Redeem Codes</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Community</h4>
+                    <ul>
+                        <li><a href="https://discord.gg/plantsvbrainrots" target="_blank" rel="noopener">Discord Server</a></li>
+                        <li><a href="https://twitter.com/plantsvbrainrots" target="_blank" rel="noopener">Twitter</a></li>
+                        <li><a href="/about">About Us</a></li>
+                        <li><a href="/about#contact">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Plants vs Brainrots Codes. Not affiliated with Roblox Corporation or Yo Gurt Studio.</p>
+                <p>Game content and materials are trademarks of their respective owners.</p>
+                <div class="legal-links">
+                    <a href="/privacy">Privacy Policy</a> |
+                    <a href="/terms">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script>
+        // Wiki search functionality
+        function searchWiki(query) {
+            const sections = document.querySelectorAll('.wiki-section');
+            const lowerQuery = query.toLowerCase();
+
+            if (query.length < 2) {
+                sections.forEach(section => {
+                    section.style.display = 'block';
+                });
+                return;
+            }
+
+            sections.forEach(section => {
+                const text = section.textContent.toLowerCase();
+                if (text.includes(lowerQuery)) {
+                    section.style.display = 'block';
+                    // Highlight matching text
+                    const headings = section.querySelectorAll('h2, h3, h4');
+                    headings.forEach(heading => {
+                        if (heading.textContent.toLowerCase().includes(lowerQuery)) {
+                            heading.style.backgroundColor = 'rgba(124, 58, 237, 0.3)';
+                            heading.style.padding = '0.5rem';
+                            heading.style.borderRadius = '4px';
+                        } else {
+                            heading.style.backgroundColor = '';
+                            heading.style.padding = '';
+                        }
+                    });
+                } else {
+                    section.style.display = 'none';
+                }
+            });
+        }
+
+        // Smooth scroll for sidebar navigation
+        document.querySelectorAll('.wiki-nav a').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
