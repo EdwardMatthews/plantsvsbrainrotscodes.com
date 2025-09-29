@@ -53,8 +53,8 @@ Allow: /bosses
 Allow: /fusion
 Allow: /gameplay
 Allow: /rebirth
-Allow: /mutations
-Allow: /tier-list
-Allow: /updates
-Allow: /tips
-Allow: /faq
+Allow: /help
+Allow: /wiki
+Allow: /about
+Allow: /privacy
+Allow: /terms
