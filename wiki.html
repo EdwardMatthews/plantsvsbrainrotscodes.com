@@ -73,17 +73,81 @@
         }
         .wiki-card {
             background: rgba(124, 58, 237, 0.1);
-            padding: 1rem;
-            border-radius: 8px;
+            padding: 1.5rem;
+            border-radius: 12px;
             border: 1px solid rgba(124, 58, 237, 0.3);
+            transition: all 0.3s ease;
+        }
+        .wiki-card:hover {
+            transform: translateY(-2px);
+            border-color: rgba(124, 58, 237, 0.5);
+            box-shadow: 0 5px 15px rgba(124, 58, 237, 0.1);
         }
         .wiki-card h4 {
             color: #c4b5fd;
-            margin-bottom: 0.5rem;
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+            padding-bottom: 0.75rem;
+            border-bottom: 2px solid rgba(124, 58, 237, 0.2);
         }
         .wiki-card p {
             font-size: 0.9rem;
             margin-bottom: 0.5rem;
+            line-height: 1.6;
+        }
+        .wiki-card ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .wiki-card ul li {
+            padding: 0.6rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            color: rgba(255, 255, 255, 0.85);
+            font-size: 0.95rem;
+            transition: all 0.2s ease;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+        .wiki-card ul li:last-child {
+            border-bottom: none;
+        }
+        .wiki-card ul li:before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            color: #a78bfa;
+            font-weight: bold;
+            transition: transform 0.2s ease;
+        }
+        .wiki-card ul li:hover {
+            color: rgba(255, 255, 255, 1);
+            padding-left: 1.75rem;
+        }
+        .wiki-card ul li:hover:before {
+            transform: translateX(0.25rem);
+        }
+        .wiki-card ul li strong {
+            color: #a78bfa;
+            font-weight: 600;
+            margin-right: 0.5rem;
+            display: inline-block;
+            min-width: 4rem;
+        }
+        /* Special styling for Quick Reference section */
+        #reference .wiki-card {
+            background: linear-gradient(135deg, rgba(124, 58, 237, 0.1), rgba(167, 139, 250, 0.05));
+        }
+        #reference .wiki-grid {
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+        #reference .wiki-card h4 {
+            background: linear-gradient(90deg, #c4b5fd, #a78bfa);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
         .wiki-card a {
             color: #a78bfa;
@@ -141,6 +205,96 @@
         .wiki-search::placeholder {
             color: rgba(255, 255, 255, 0.5);
         }
+        /* Community Resources Section */
+        .community-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+        .community-links a {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.875rem 2rem;
+            font-size: 1rem;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        .community-links .btn-primary {
+            background: linear-gradient(135deg, #7c3aed, #a78bfa);
+            color: white;
+            border: 2px solid transparent;
+            box-shadow: 0 4px 15px rgba(124, 58, 237, 0.3);
+        }
+        .community-links .btn-primary:hover {
+            background: linear-gradient(135deg, #6d28d9, #8b5cf6);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(124, 58, 237, 0.4);
+        }
+        .community-links .btn-primary::before {
+            content: '💬';
+            font-size: 1.2rem;
+        }
+        .community-links .btn-secondary {
+            background: transparent;
+            color: #a78bfa;
+            border: 2px solid #a78bfa;
+            position: relative;
+        }
+        .community-links .btn-secondary:hover {
+            background: rgba(167, 139, 250, 0.1);
+            border-color: #c4b5fd;
+            color: #c4b5fd;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(167, 139, 250, 0.2);
+        }
+        .community-links .btn-secondary:first-of-type::before {
+            content: '🎮';
+            font-size: 1.2rem;
+        }
+        .community-links .btn-secondary:last-child::before {
+            content: '❓';
+            font-size: 1.2rem;
+        }
+        /* Button ripple effect */
+        .community-links a::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+        .community-links a:active::after {
+            width: 300px;
+            height: 300px;
+        }
+        /* Info box styling */
+        .info-box {
+            background: linear-gradient(135deg, rgba(124, 58, 237, 0.05), rgba(167, 139, 250, 0.03));
+            border: 1px solid rgba(124, 58, 237, 0.2);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-top: 2rem;
+        }
+        .info-box p {
+            color: rgba(255, 255, 255, 0.9);
+            line-height: 1.6;
+            margin: 0;
+        }
+        .info-box strong {
+            color: #a78bfa;
+        }
         @media (max-width: 768px) {
             .wiki-container {
                 grid-template-columns: 1fr;
@@ -148,6 +302,30 @@
             .wiki-sidebar {
                 position: static;
                 max-height: none;
+            }
+            .wiki-grid {
+                grid-template-columns: 1fr;
+            }
+            #reference .wiki-grid {
+                grid-template-columns: 1fr;
+            }
+            .wiki-card {
+                padding: 1.25rem;
+            }
+            .wiki-card ul li strong {
+                min-width: auto;
+                display: block;
+                margin-bottom: 0.25rem;
+            }
+            .community-links {
+                flex-direction: column;
+                align-items: stretch;
+                gap: 1rem;
+            }
+            .community-links a {
+                width: 100%;
+                justify-content: center;
+                padding: 1rem 1.5rem;
             }
         }
     </style>
@@ -542,43 +720,43 @@
 
                     <div class="wiki-grid">
                         <div class="wiki-card">
-                            <h4>Wave Checkpoints</h4>
+                            <h4>📍 Wave Checkpoints</h4>
                             <ul>
-                                <li>Wave 25: Caseoh Boss</li>
-                                <li>Wave 50: Quandale Boss</li>
-                                <li>Wave 75: Shmlawg Boss</li>
-                                <li>Wave 100: Chef Boss</li>
-                                <li>Wave 125: Dragon Boss</li>
+                                <li><strong>Wave 25:</strong> Caseoh Boss</li>
+                                <li><strong>Wave 50:</strong> Quandale Boss</li>
+                                <li><strong>Wave 75:</strong> Shmlawg Boss</li>
+                                <li><strong>Wave 100:</strong> Chef Boss</li>
+                                <li><strong>Wave 125:</strong> Dragon Boss</li>
                             </ul>
                         </div>
                         <div class="wiki-card">
-                            <h4>Best Plants by Role</h4>
+                            <h4>🌟 Best Plants by Role</h4>
                             <ul>
-                                <li>DPS: Plasma Pea</li>
-                                <li>AOE: Winter Melon</li>
-                                <li>Support: Tile Turnip</li>
-                                <li>Economy: Gold Bloom</li>
-                                <li>Tank: Wall-nut</li>
+                                <li><strong>DPS:</strong> Plasma Pea</li>
+                                <li><strong>AOE:</strong> Winter Melon</li>
+                                <li><strong>Support:</strong> Tile Turnip</li>
+                                <li><strong>Economy:</strong> Gold Bloom</li>
+                                <li><strong>Tank:</strong> Wall-nut</li>
                             </ul>
                         </div>
                         <div class="wiki-card">
-                            <h4>Fusion Priority</h4>
+                            <h4>🔄 Fusion Priority</h4>
                             <ul>
-                                <li>1. Sunflower + Twin</li>
-                                <li>2. Peashooter + Repeater</li>
-                                <li>3. Wall-nut + Tall-nut</li>
-                                <li>4. Snow Pea + Winter</li>
-                                <li>5. Cherry + Jalapeno</li>
+                                <li><strong>1st:</strong> Sunflower + Twin</li>
+                                <li><strong>2nd:</strong> Peashooter + Repeater</li>
+                                <li><strong>3rd:</strong> Wall-nut + Tall-nut</li>
+                                <li><strong>4th:</strong> Snow Pea + Winter</li>
+                                <li><strong>5th:</strong> Cherry + Jalapeno</li>
                             </ul>
                         </div>
                         <div class="wiki-card">
-                            <h4>Daily Checklist</h4>
+                            <h4>📋 Daily Checklist</h4>
                             <ul>
-                                <li>✓ Redeem new codes</li>
-                                <li>✓ Complete daily quest</li>
-                                <li>✓ Check event rotation</li>
-                                <li>✓ Claim login bonus</li>
-                                <li>✓ Join group rewards</li>
+                                <li><strong>Task 1:</strong> Redeem new codes</li>
+                                <li><strong>Task 2:</strong> Complete daily quest</li>
+                                <li><strong>Task 3:</strong> Check event rotation</li>
+                                <li><strong>Task 4:</strong> Claim login bonus</li>
+                                <li><strong>Task 5:</strong> Join group rewards</li>
                             </ul>
                         </div>
                     </div>
