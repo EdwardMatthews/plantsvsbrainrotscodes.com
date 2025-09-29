@@ -13,8 +13,35 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/guides.css">
     <style>
-        .rebirth-header {
-            background: linear-gradient(135deg, #ec4899 0%, #8b5cf6 100%);
+        .hero-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        .stat-card {
+            background: rgba(236, 72, 153, 0.1);
+            border: 2px solid rgba(236, 72, 153, 0.3);
+            border-radius: 12px;
+            padding: 1.5rem;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        .stat-card:hover {
+            transform: translateY(-5px);
+            border-color: #ec4899;
+            box-shadow: 0 5px 15px rgba(236, 72, 153, 0.2);
+        }
+        .stat-number {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #ec4899;
+            margin-bottom: 0.5rem;
+        }
+        .stat-label {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            text-transform: uppercase;
         }
         .rebirth-card {
             background: var(--dark-bg);
@@ -103,6 +130,14 @@
             font-size: 2rem;
             margin-right: 1rem;
         }
+        @media (max-width: 768px) {
+            .hero-stats {
+                grid-template-columns: 1fr;
+            }
+            .reward-grid {
+                grid-template-columns: 1fr;
+            }
+        }
     </style>
     <script type="application/ld+json">
     {
@@ -161,31 +196,35 @@
         </div>
     </nav>
 
-    <section class="guide-hero rebirth-header">
+    <header class="page-header rebirth-header">
         <div class="container">
-            <h1 class="guide-title">Rebirth Plants vs Brainrots Guide 2025</h1>
-            <p class="guide-subtitle">Learn how to rebirth Plants vs Brainrots for maximum rewards</p>
-            <div class="hero-stats">
-                <div class="stat-card">
-                    <div class="stat-number">+50%</div>
-                    <div class="stat-label">Money & Luck Boost</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number">15+</div>
-                    <div class="stat-label">Rebirth Levels</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number">5</div>
-                    <div class="stat-label">Boss Tiers</div>
-                </div>
-            </div>
+            <h1>Rebirth Plants vs Brainrots Guide 2025</h1>
+            <p>Learn how to rebirth Plants vs Brainrots for maximum rewards</p>
         </div>
-    </section>
+    </header>
 
-    <main class="container">
-        <nav class="breadcrumb">
-            <a href="index">Home</a> > <span>Rebirth Guide</span>
-        </nav>
+    <main>
+        <div class="container">
+            <nav class="breadcrumb">
+                <a href="/">Home</a> > <span>Rebirth Guide</span>
+            </nav>
+
+            <section class="rebirth-card">
+                <div class="hero-stats">
+                    <div class="stat-card">
+                        <div class="stat-number">+50%</div>
+                        <div class="stat-label">Money & Luck Boost</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">15+</div>
+                        <div class="stat-label">Rebirth Levels</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">5</div>
+                        <div class="stat-label">Boss Tiers</div>
+                    </div>
+                </div>
+            </section>
 
         <section class="rebirth-card">
             <h2>What is Rebirth Plants vs Brainrots System?</h2>
@@ -571,6 +610,7 @@
 
             <p>Whether you're wondering how to rebirth Plants vs Brainrots for the first time or optimizing your fifteenth rebirth strategy, the fundamental principle remains constant: rebirth early, rebirth often, and always prepare properly to minimize losses. With the strategies outlined in this comprehensive guide, you're equipped to master the rebirth system and achieve maximum progression efficiency.</p>
         </section>
+        </div>
     </main>
 
     <footer>

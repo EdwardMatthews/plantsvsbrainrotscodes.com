@@ -1,4 +1,25 @@
 /* Guide Pages Styles */
+/* Common page header styles */
+.page-header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    padding: 6rem 0 3rem;
+    margin-top: 0;
+    color: white;
+}
+
+.page-header h1 {
+    font-size: 3rem;
+    color: white;
+    margin-bottom: 0.5rem;
+}
+
+.page-header p {
+    font-size: 1.25rem;
+    color: rgba(255, 255, 255, 0.9);
+    margin: 0;
+}
+
+/* Specific header backgrounds */
 .plants-header {
     background: linear-gradient(135deg, #10b981 0%, #059669 100%);
 }
@@ -9,6 +30,36 @@
 
 .fusion-header {
     background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+}
+
+.gameplay-header {
+    background: linear-gradient(135deg, #8b5cf6 0%, #6366f1 100%);
+}
+
+.rebirth-header {
+    background: linear-gradient(135deg, #ec4899 0%, #8b5cf6 100%);
+}
+
+/* Breadcrumb navigation */
+.breadcrumb {
+    padding: 1rem 0;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    margin-bottom: 2rem;
+}
+
+.breadcrumb a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.breadcrumb a:hover {
+    color: var(--accent-color);
+}
+
+.breadcrumb > span {
+    color: var(--text-primary);
 }
 
 .guide-intro {
@@ -475,6 +526,23 @@
 
 /* Responsive Design */
 @media (max-width: 768px) {
+    .page-header {
+        padding: 4rem 0 2rem;
+    }
+
+    .page-header h1 {
+        font-size: 2rem;
+    }
+
+    .page-header p {
+        font-size: 1rem;
+    }
+
+    .breadcrumb {
+        font-size: 0.85rem;
+        margin-bottom: 1rem;
+    }
+
     .rarity-grid {
         grid-template-columns: 1fr;
     }
