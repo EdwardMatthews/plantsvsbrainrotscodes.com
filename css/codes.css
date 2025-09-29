@@ -1,0 +1,331 @@
+/* Codes Page Specific Styles */
+.page-header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    padding: 6rem 0 3rem;
+    margin-top: 70px;
+    text-align: center;
+}
+
+.page-header h1 {
+    font-size: 3rem;
+    color: white;
+    margin-bottom: 1rem;
+}
+
+.page-header p {
+    font-size: 1.25rem;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.codes-main {
+    padding: 3rem 0;
+}
+
+.codes-filter {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 3rem;
+    flex-wrap: wrap;
+}
+
+.filter-btn {
+    padding: 0.75rem 1.5rem;
+    background: var(--dark-bg-secondary);
+    color: var(--text-secondary);
+    border: 2px solid var(--border-color);
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.filter-btn:hover {
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+}
+
+.filter-btn.active {
+    background: var(--primary-color);
+    color: white;
+    border-color: var(--primary-color);
+}
+
+.codes-section {
+    margin-bottom: 4rem;
+}
+
+.codes-section h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+}
+
+.section-desc {
+    color: var(--text-secondary);
+    margin-bottom: 2rem;
+    line-height: 1.6;
+}
+
+.codes-table {
+    background: var(--dark-bg-secondary);
+    border-radius: 12px;
+    padding: 1.5rem;
+    border: 1px solid var(--border-color);
+}
+
+.code-row {
+    display: grid;
+    grid-template-columns: auto 1fr auto auto;
+    gap: 1rem;
+    align-items: center;
+    padding: 1.5rem;
+    background: var(--dark-bg);
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    border: 2px solid var(--border-color);
+    transition: all 0.3s ease;
+}
+
+.code-row:last-child {
+    margin-bottom: 0;
+}
+
+.code-row:hover {
+    border-color: var(--primary-color);
+    transform: translateX(5px);
+}
+
+.code-info {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.code-text {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--accent-color);
+    font-family: 'Courier New', monospace;
+}
+
+.code-status {
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.code-status.new {
+    background: var(--success-color);
+    color: white;
+    animation: pulse 2s infinite;
+}
+
+.code-status.active {
+    background: var(--primary-color);
+    color: white;
+}
+
+.code-status.expired {
+    background: var(--danger-color);
+    color: white;
+}
+
+.code-reward {
+    color: var(--text-secondary);
+    font-size: 1rem;
+}
+
+.code-date {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
+.copy-code-btn {
+    padding: 0.5rem 1.5rem;
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.copy-code-btn:hover {
+    background: #6b2fc7;
+    transform: scale(1.05);
+}
+
+.copy-code-btn.copied {
+    background: var(--success-color);
+}
+
+.no-codes {
+    text-align: center;
+    padding: 3rem;
+    background: var(--dark-bg-secondary);
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+}
+
+.no-codes p {
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+}
+
+.codes-info-section {
+    background: var(--dark-bg-secondary);
+    border-radius: 12px;
+    padding: 3rem;
+    margin-bottom: 3rem;
+    border: 1px solid var(--border-color);
+}
+
+.codes-info-section h2 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    color: var(--primary-color);
+}
+
+.codes-info-section h3 {
+    font-size: 1.5rem;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    color: var(--text-primary);
+}
+
+.codes-info-section p {
+    color: var(--text-secondary);
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+}
+
+.reward-types {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.reward-type {
+    background: var(--dark-bg);
+    padding: 1.5rem;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    transition: all 0.3s ease;
+}
+
+.reward-type:hover {
+    border-color: var(--primary-color);
+    transform: translateY(-3px);
+}
+
+.reward-type h4 {
+    color: var(--primary-color);
+    margin-bottom: 0.75rem;
+    font-size: 1.25rem;
+}
+
+.reward-type p {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin: 0;
+}
+
+.update-methods,
+.redemption-tips {
+    list-style: none;
+    padding: 0;
+    margin: 1.5rem 0;
+}
+
+.update-methods li,
+.redemption-tips li {
+    color: var(--text-secondary);
+    padding: 0.75rem 0;
+    padding-left: 2rem;
+    position: relative;
+    line-height: 1.6;
+}
+
+.update-methods li::before,
+.redemption-tips li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--success-color);
+    font-weight: bold;
+}
+
+.codes-faq {
+    margin-top: 3rem;
+}
+
+.codes-faq h2 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    text-align: center;
+    color: var(--primary-color);
+}
+
+.faq-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.faq-card {
+    background: var(--dark-bg-secondary);
+    padding: 2rem;
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+    transition: all 0.3s ease;
+}
+
+.faq-card:hover {
+    border-color: var(--primary-color);
+    transform: translateY(-3px);
+}
+
+.faq-card h3 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.faq-card p {
+    color: var(--text-secondary);
+    line-height: 1.6;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .page-header h1 {
+        font-size: 2rem;
+    }
+
+    .code-row {
+        grid-template-columns: 1fr;
+        gap: 0.75rem;
+    }
+
+    .code-info {
+        justify-content: space-between;
+    }
+
+    .copy-code-btn {
+        width: 100%;
+    }
+
+    .reward-types {
+        grid-template-columns: 1fr;
+    }
+
+    .faq-grid {
+        grid-template-columns: 1fr;
+    }
+}

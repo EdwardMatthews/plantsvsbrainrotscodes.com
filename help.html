@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Help Center - Plants vs Brainrots Game Guide & FAQ</title>
+    <meta name="description" content="Get help with Plants vs Brainrots. Complete FAQ, gameplay tips, troubleshooting, and support. Find answers to common questions and master the game.">
+    <meta name="keywords" content="plants vs brainrots help, pvb faq, game guide, troubleshooting, tips and tricks, how to play plants vs brainrots, support">
+    <meta property="og:title" content="Plants vs Brainrots - Help Center & FAQ">
+    <meta property="og:description" content="Complete help guide for Plants vs Brainrots players. Find answers, tips, and support.">
+    <meta property="og:url" content="https://plantsvsbrainrotscodes.com/help">
+    <link rel="canonical" href="https://plantsvsbrainrotscodes.com/help">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/guides.css">
+    <style>
+        .help-header {
+            background: linear-gradient(135deg, #3b82f6 0%, #6366f1 100%);
+        }
+        .help-section {
+            background: var(--dark-bg);
+            border: 2px solid var(--border-color);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+        .faq-item {
+            background: var(--dark-bg-secondary);
+            border-left: 4px solid var(--primary-color);
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .faq-item:hover {
+            transform: translateX(5px);
+            border-left-color: var(--accent-color);
+        }
+        .faq-question {
+            font-weight: 600;
+            color: var(--text-primary);
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+        .faq-answer {
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+        .tip-category {
+            margin-bottom: 2rem;
+        }
+        .tip-category h3 {
+            color: var(--accent-color);
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 0.5rem;
+            margin-bottom: 1rem;
+        }
+        .tip-list {
+            list-style: none;
+            padding: 0;
+        }
+        .tip-list li {
+            background: rgba(59, 130, 246, 0.1);
+            border: 1px solid rgba(59, 130, 246, 0.3);
+            padding: 1rem;
+            margin-bottom: 0.8rem;
+            border-radius: 8px;
+            position: relative;
+            padding-left: 3rem;
+        }
+        .tip-list li::before {
+            content: '💡';
+            position: absolute;
+            left: 1rem;
+            font-size: 1.2rem;
+        }
+        .quick-links {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        .quick-link-card {
+            background: var(--dark-bg-secondary);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 2px solid var(--border-color);
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+        .quick-link-card:hover {
+            border-color: var(--primary-color);
+            transform: translateY(-3px);
+        }
+        .quick-link-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+        .quick-link-card p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+        .support-box {
+            background: linear-gradient(135deg, rgba(34, 197, 94, 0.1), rgba(16, 185, 129, 0.1));
+            border: 2px solid var(--success-color);
+            border-radius: 12px;
+            padding: 2rem;
+            margin: 3rem 0;
+            text-align: center;
+        }
+        .support-box h2 {
+            color: var(--success-color);
+            margin-bottom: 1rem;
+        }
+        .support-email {
+            display: inline-block;
+            background: var(--dark-bg);
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+            font-size: 1.2rem;
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        .support-email:hover {
+            background: var(--dark-bg-secondary);
+            transform: scale(1.05);
+        }
+        .troubleshooting-steps {
+            background: var(--dark-bg-secondary);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+        }
+        .troubleshooting-steps ol {
+            margin: 0;
+            padding-left: 1.5rem;
+        }
+        .troubleshooting-steps li {
+            margin-bottom: 0.8rem;
+            color: var(--text-secondary);
+        }
+        .warning-box {
+            background: rgba(239, 68, 68, 0.1);
+            border: 2px solid var(--danger-color);
+            border-radius: 8px;
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+        .warning-box strong {
+            color: var(--danger-color);
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <a href="/">Plants vs Brainrots Codes</a>
+            </div>
+            <button class="nav-toggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-menu">
+                <li><a href="/">Home</a></li>
+                <li><a href="/codes">Codes</a></li>
+                <li><a href="/gameplay">How to Play</a></li>
+                <li><a href="/plants">Plants</a></li>
+                <li><a href="/brainrots">Brainrots</a></li>
+                <li><a href="/bosses">Bosses</a></li>
+                <li><a href="/fusion">Fusion</a></li>
+                <li><a href="/rebirth">Rebirth</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header class="page-header help-header">
+        <div class="container">
+            <h1>Plants vs Brainrots Help Center</h1>
+            <p>Find answers, tips, and support for all your gameplay questions</p>
+        </div>
+    </header>
+
+    <main>
+        <section class="help-section">
+            <div class="container">
+                <h2>Quick Navigation</h2>
+                <div class="quick-links">
+                    <a href="#getting-started" class="quick-link-card">
+                        <h3>🚀 Getting Started</h3>
+                        <p>New player basics and first steps</p>
+                    </a>
+                    <a href="#gameplay-tips" class="quick-link-card">
+                        <h3>💡 Gameplay Tips</h3>
+                        <p>Strategies and optimization</p>
+                    </a>
+                    <a href="#common-issues" class="quick-link-card">
+                        <h3>🔧 Troubleshooting</h3>
+                        <p>Fix common problems</p>
+                    </a>
+                    <a href="#faq" class="quick-link-card">
+                        <h3>❓ FAQ</h3>
+                        <p>Frequently asked questions</p>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section id="getting-started" class="help-section">
+            <div class="container">
+                <h2>Getting Started with Plants vs Brainrots</h2>
+
+                <div class="tip-category">
+                    <h3>First Steps for New Players</h3>
+                    <ul class="tip-list">
+                        <li>Start with your free $400 by purchasing Eggplants from NPC George. They're cheap and effective for early defense.</li>
+                        <li>Focus on building multiple garden rows before investing in expensive plants. Coverage beats power in early game.</li>
+                        <li>Visit NPC George every 4 minutes and 40 seconds when his shop refreshes for new plant options.</li>
+                        <li>Collect your first brainrots and place them on platforms immediately - passive income is crucial for progression.</li>
+                        <li>Redeem all available codes from our codes page for free cash, potions, and boosts to accelerate your start.</li>
+                    </ul>
+                </div>
+
+                <div class="tip-category">
+                    <h3>Understanding Game Basics</h3>
+                    <ul class="tip-list">
+                        <li>Plants defend against brainrots - place them strategically in garden plots to stop waves.</li>
+                        <li>Captured brainrots generate passive income when placed on your island platforms.</li>
+                        <li>Balance spending between defensive plants and income-generating brainrots for optimal growth.</li>
+                        <li>The spawn counter tracks progress toward boss battles - every 500 spawns triggers a boss.</li>
+                        <li>Rebirth resets progress but provides permanent multipliers - essential for long-term advancement.</li>
+                    </ul>
+                </div>
+
+                <div class="tip-category">
+                    <h3>Code Redemption Guide</h3>
+                    <div class="troubleshooting-steps">
+                        <ol>
+                            <li>Click the codes button on the left side of your screen</li>
+                            <li>Copy the exact code from our codes page (case-sensitive)</li>
+                            <li>Paste or type the code into the text box</li>
+                            <li>Click the redeem button to claim rewards</li>
+                            <li>Check your inventory or cash balance for the rewards</li>
+                        </ol>
+                    </div>
+                    <div class="warning-box">
+                        <strong>Important:</strong> Codes are case-sensitive and expire without notice. Redeem them as soon as possible!
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="gameplay-tips" class="help-section">
+            <div class="container">
+                <h2>Essential Gameplay Tips & Strategies</h2>
+
+                <div class="tip-category">
+                    <h3>Early Game Strategy (0-500 Spawns)</h3>
+                    <ul class="tip-list">
+                        <li>Maintain a 70/30 split: 70% of cash for brainrot income, 30% for plant defense.</li>
+                        <li>Distribute plants evenly across lanes rather than concentrating firepower in one row.</li>
+                        <li>Save Lucky Potions for when you have enough cash to buy multiple seeds at once.</li>
+                        <li>Don't sell brainrots unless absolutely necessary - compound income is key.</li>
+                        <li>Focus on quantity over quality initially - more cheap plants beat fewer expensive ones.</li>
+                    </ul>
+                </div>
+
+                <div class="tip-category">
+                    <h3>Mid Game Optimization (500-2000 Spawns)</h3>
+                    <ul class="tip-list">
+                        <li>Prepare for your first rebirth by collecting the required mythic and godly brainrots.</li>
+                        <li>Start targeting specific plants like Watermelon for AOE damage against dense waves.</li>
+                        <li>Use Speed Potions during active play sessions to accelerate spawn rates and income.</li>
+                        <li>Transfer valuable brainrots to alt accounts before rebirthing to preserve them.</li>
+                        <li>Begin boss farming - defeat Hotspotini Burrito repeatedly for rare drops.</li>
+                    </ul>
+                </div>
+
+                <div class="tip-category">
+                    <h3>Advanced Strategies (Post-Rebirth)</h3>
+                    <ul class="tip-list">
+                        <li>Rush to unlock the Fuse Machine with your first rebirth - fusion income changes everything.</li>
+                        <li>Target Los Mr Carrotitos fusion for $34,300/second income if you have the components.</li>
+                        <li>Stack eggs before rebirthing - they persist through resets and jumpstart recovery.</li>
+                        <li>Join trading communities to exchange fusion components and rare brainrots.</li>
+                        <li>Time weather events for frozen mutations - they occur every 2 hours on schedule.</li>
+                    </ul>
+                </div>
+
+                <div class="tip-category">
+                    <h3>Income Maximization Tips</h3>
+                    <ul class="tip-list">
+                        <li>Prioritize large brainrots over rare ones - a 20kg common beats a 5kg legendary for income.</li>
+                        <li>Place highest income brainrots near your spawn point for quick bonus collection.</li>
+                        <li>Never let inventory fill completely - full inventory deletes new captures permanently.</li>
+                        <li>Keep only brainrots above minimum weight thresholds: Rare 15kg+, Epic 12kg+, Legendary 10kg+.</li>
+                        <li>Focus mutations on income multipliers rather than cosmetic changes.</li>
+                    </ul>
+                </div>
+
+                <div class="tip-category">
+                    <h3>Common Mistakes to Avoid</h3>
+                    <ul class="tip-list">
+                        <li>Waiting too long to rebirth - do it immediately when requirements are met.</li>
+                        <li>Using cash codes before rebirthing - save them for after the reset.</li>
+                        <li>Fusing with full inventory - the result gets deleted if there's no space.</li>
+                        <li>Ignoring boss spawn counters - prepare defenses before hitting 500 spawns.</li>
+                        <li>Hoarding weak brainrots - sell small ones even if they're higher rarity.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="common-issues" class="help-section">
+            <div class="container">
+                <h2>Troubleshooting Common Issues</h2>
+
+                <div class="faq-item">
+                    <div class="faq-question">My codes aren't working</div>
+                    <div class="faq-answer">
+                        <div class="troubleshooting-steps">
+                            <ol>
+                                <li>Ensure the code is typed exactly as shown (case-sensitive)</li>
+                                <li>Check if the code has already been redeemed on your account</li>
+                                <li>Verify the code hasn't expired - old codes stop working</li>
+                                <li>Try rejoining the game if the button seems unresponsive</li>
+                                <li>Some codes are platform-specific or event-limited</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">I lost my fused brainrot after fusion completed</div>
+                    <div class="faq-answer">
+                        This happens when your inventory is full during fusion completion. The game has a bug that permanently deletes overflow fusions.
+                        <strong>Prevention:</strong> Always maintain 20-30% free inventory space before starting any fusion. Unfortunately, lost fusions cannot be recovered.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">My plants disappeared after rebirth</div>
+                    <div class="faq-answer">
+                        Plants should NOT disappear during rebirth - only cash and brainrots reset. If your plants are missing:
+                        <div class="troubleshooting-steps">
+                            <ol>
+                                <li>Check your inventory - they might be stored there</li>
+                                <li>Look in all garden plots - UI bugs can hide them temporarily</li>
+                                <li>Rejoin the game to refresh your data</li>
+                                <li>Contact support if plants are genuinely missing</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">Game is lagging or freezing</div>
+                    <div class="faq-answer">
+                        Performance issues typically occur when too many entities are on screen:
+                        <div class="troubleshooting-steps">
+                            <ol>
+                                <li>Reduce graphics quality in Roblox settings</li>
+                                <li>Sell excess small brainrots to reduce entity count</li>
+                                <li>Avoid placing all plants in view at once</li>
+                                <li>Close other programs to free up system resources</li>
+                                <li>Try a different server if lag persists</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">Boss won't spawn after 500 kills</div>
+                    <div class="faq-answer">
+                        Boss spawning requires specific conditions:
+                        <ul style="margin-top: 0.5rem;">
+                            <li>Ensure you've killed exactly 500 brainrots (check spawn counter)</li>
+                            <li>Higher tier bosses require specific rebirth levels</li>
+                            <li>Clear the spawn area - bosses need space to appear</li>
+                            <li>Some bosses only spawn during certain times or events</li>
+                            <li>Try rejoining if the boss should have spawned but didn't</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="faq" class="help-section">
+            <div class="container">
+                <h2>Frequently Asked Questions</h2>
+
+                <div class="faq-item">
+                    <div class="faq-question">When should I do my first rebirth?</div>
+                    <div class="faq-answer">
+                        Complete your first rebirth immediately upon meeting requirements. The Fuse Machine unlock and 50% permanent multipliers far outweigh any temporary wealth. Most successful players rebirth within their first few hours of gameplay. Never delay rebirth to accumulate "just a bit more" - the multipliers compound exponentially.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">What's the best plant for beginners?</div>
+                    <div class="faq-answer">
+                        Eggplant is the ideal starter plant - cheap, reliable, and available from NPC George. As you progress, Watermelon becomes essential for its AOE damage. For late game, Mr. Carrot and Carnivorous Plant dominate. Focus on quantity early, then transition to quality plants after your first rebirth.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">How do mutations work?</div>
+                    <div class="faq-answer">
+                        Mutations randomly occur when planting seeds or spawning brainrots. Lucky Potions increase mutation chances. Frozen mutations only appear during Frozen Biome events (every 2 hours). Size mutations can increase income by 50-200%. Mutations don't transfer through fusion or trading, so use mutated units wisely.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">Should I save codes for after rebirth?</div>
+                    <div class="faq-answer">
+                        Yes! Save cash codes for after rebirthing since money resets. Use spawn speed and luck codes before rebirth to reach requirements faster. Damage codes work well post-rebirth for faster farming. This strategic code usage can reduce time between rebirths by 30-50%.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">Can I trade with other players?</div>
+                    <div class="faq-answer">
+                        There's no direct trading system, but you can gift items to other players. Use this to transfer brainrots to alt accounts before rebirthing, or exchange fusion components with trusted friends. Join the Discord community to find reliable trading partners and middlemen.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">What determines brainrot income?</div>
+                    <div class="faq-answer">
+                        Income depends on three factors: rarity, weight, and mutations. A large common brainrot often generates more income than a small legendary. Weight matters more than rarity for income optimization. Focus on keeping heavy brainrots regardless of tier, selling lighter ones even if they're rarer.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">How often do codes release?</div>
+                    <div class="faq-answer">
+                        New codes typically release during updates, milestone celebrations, or special events. Check our codes page daily for the latest additions. Follow the game's social media accounts for instant notifications. Most codes expire within 1-2 weeks, so redeem them quickly.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">Is there a max rebirth level?</div>
+                    <div class="faq-answer">
+                        No hard limit exists for rebirth levels. The game continuously adds new rebirth tiers through updates. Some players have reached rebirth level 15 or higher. Each level provides additional permanent bonuses, making infinite progression theoretically possible.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">Why did my mutation disappear after fusion?</div>
+                    <div class="faq-answer">
+                        Mutations never transfer through fusion - this is intentional game design, not a bug. All fusions produce base versions regardless of input mutations. Calculate whether the fusion income exceeds your mutated component's value before committing to fusion.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">What's the fastest way to earn money?</div>
+                    <div class="faq-answer">
+                        Early game: Focus on brainrot passive income over active farming. Mid game: Defeat bosses repeatedly for valuable drops. Late game: Fuse Los Mr Carrotitos for $34,300/second. Always prioritize rebirthing for permanent multipliers over temporary wealth accumulation.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="support-box">
+            <div class="container">
+                <h2>Need More Help?</h2>
+                <p>Can't find the answer you're looking for? Our support team is here to help!</p>
+                <p>Contact us for assistance with account issues, bug reports, or gameplay questions.</p>
+                <a href="mailto:support@plantsvsbrainrotscodes.com" class="support-email">
+                    📧 support@plantsvsbrainrotscodes.com
+                </a>
+                <p style="margin-top: 1.5rem; color: var(--text-secondary); font-size: 0.9rem;">
+                    Please include your Roblox username and detailed description of your issue.<br>
+                    Response time: 24-48 hours (business days)
+                </p>
+            </div>
+        </section>
+
+        <section class="help-section">
+            <div class="container">
+                <h2>Additional Resources</h2>
+                <div class="quick-links">
+                    <a href="/codes" class="quick-link-card">
+                        <h3>📝 Active Codes</h3>
+                        <p>Get the latest working codes</p>
+                    </a>
+                    <a href="/gameplay" class="quick-link-card">
+                        <h3>🎮 Full Gameplay Guide</h3>
+                        <p>Complete tutorial and strategies</p>
+                    </a>
+                    <a href="/rebirth" class="quick-link-card">
+                        <h3>♻️ Rebirth System</h3>
+                        <p>Maximize your progression</p>
+                    </a>
+                    <a href="/fusion" class="quick-link-card">
+                        <h3>🔄 Fusion Recipes</h3>
+                        <p>All fusion combinations</p>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="/codes">Latest Codes</a></li>
+                        <li><a href="/gameplay">How to Play</a></li>
+                        <li><a href="/help">Help Center</a></li>
+                        <li><a href="/gameplay#beginner">Beginner's Guide</a></li>
+                        <li><a href="https://www.roblox.com/games/127742093697776/Plants-Vs-Brainrots" target="_blank" rel="noopener">Play Game</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Game Guides</h4>
+                    <ul>
+                        <li><a href="/plants">All Plants</a></li>
+                        <li><a href="/brainrots">All Brainrots</a></li>
+                        <li><a href="/bosses">Boss Strategies</a></li>
+                        <li><a href="/fusion">Fusion Recipes</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Game Systems</h4>
+                    <ul>
+                        <li><a href="/rebirth">Rebirth Guide</a></li>
+                        <li><a href="/brainrots#income">Income Strategy</a></li>
+                        <li><a href="/help">Help & FAQ</a></li>
+                        <li><a href="/codes#how-to-redeem">Redeem Codes</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Community</h4>
+                    <ul>
+                        <li><a href="https://discord.gg/plantsvbrainrots" target="_blank" rel="noopener">Discord Server</a></li>
+                        <li><a href="https://twitter.com/plantsvbrainrots" target="_blank" rel="noopener">Twitter</a></li>
+                        <li><a href="/about">About Us</a></li>
+                        <li><a href="/about#contact">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 PlantsVsBrainrotsCodes.com - Not affiliated with Yo Gurt Studio or Roblox Corporation</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

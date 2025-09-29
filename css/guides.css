@@ -1,0 +1,497 @@
+/* Guide Pages Styles */
+.plants-header {
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+}
+
+.bosses-header {
+    background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+}
+
+.fusion-header {
+    background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+}
+
+.guide-intro {
+    padding: 3rem 0;
+    background: var(--dark-bg-secondary);
+}
+
+.guide-intro h2 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.guide-intro p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--text-secondary);
+    margin-bottom: 1.5rem;
+}
+
+/* Rarity System */
+.rarity-system {
+    padding: 4rem 0;
+}
+
+.rarity-system h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.rarity-system > p {
+    text-align: center;
+    color: var(--text-secondary);
+    margin-bottom: 3rem;
+    font-size: 1.1rem;
+}
+
+.rarity-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.rarity-card {
+    background: var(--dark-bg-secondary);
+    border: 2px solid var(--border-color);
+    border-radius: 12px;
+    padding: 2rem;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.rarity-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+}
+
+.rarity-card.common::before {
+    background: #64748b;
+}
+
+.rarity-card.rare::before {
+    background: #3b82f6;
+}
+
+.rarity-card.epic::before {
+    background: #8b5cf6;
+}
+
+.rarity-card.legendary::before {
+    background: #f59e0b;
+}
+
+.rarity-card.mythic::before {
+    background: #ef4444;
+}
+
+.rarity-card.secret::before {
+    background: linear-gradient(90deg, #ff0080, #ff8c00, #40e0d0, #ff0080);
+    background-size: 300% 100%;
+    animation: rainbow 3s linear infinite;
+}
+
+@keyframes rainbow {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 100% 50%; }
+}
+
+.rarity-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.rarity-card h3 {
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+}
+
+.rarity-stats {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+    padding: 1rem;
+    background: var(--dark-bg);
+    border-radius: 8px;
+}
+
+.rarity-stats span {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+.rarity-card p {
+    color: var(--text-secondary);
+    line-height: 1.6;
+}
+
+/* Featured Plants */
+.featured-plants {
+    padding: 4rem 0;
+    background: var(--dark-bg-secondary);
+}
+
+.featured-plants h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.plant-detailed {
+    background: var(--dark-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    margin-bottom: 2rem;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.plant-detailed:hover {
+    border-color: var(--primary-color);
+    box-shadow: 0 5px 20px rgba(124, 58, 237, 0.2);
+}
+
+.plant-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem;
+    background: var(--dark-bg-secondary);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.plant-header h3 {
+    font-size: 1.75rem;
+    margin: 0;
+}
+
+.plant-rarity {
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.plant-rarity.common {
+    background: #64748b;
+    color: white;
+}
+
+.plant-rarity.rare {
+    background: #3b82f6;
+    color: white;
+}
+
+.plant-rarity.epic {
+    background: #8b5cf6;
+    color: white;
+}
+
+.plant-rarity.legendary {
+    background: #f59e0b;
+    color: white;
+}
+
+.plant-rarity.mythic {
+    background: #ef4444;
+    color: white;
+}
+
+.plant-content {
+    padding: 2rem;
+}
+
+.plant-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    padding: 1rem;
+    background: var(--dark-bg-secondary);
+    border-radius: 8px;
+}
+
+.stat-item {
+    display: flex;
+    justify-content: space-between;
+}
+
+.stat-label {
+    color: var(--text-secondary);
+    font-weight: 500;
+}
+
+.stat-value {
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+.plant-description {
+    color: var(--text-secondary);
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+}
+
+.plant-strategy {
+    background: var(--dark-bg-secondary);
+    border-left: 4px solid var(--primary-color);
+    padding: 1.5rem;
+    border-radius: 8px;
+}
+
+.plant-strategy h4 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.plant-strategy p {
+    color: var(--text-secondary);
+    line-height: 1.6;
+}
+
+/* Mutation Guide */
+.mutation-guide {
+    padding: 4rem 0;
+}
+
+.mutation-guide h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.mutation-guide > p {
+    text-align: center;
+    color: var(--text-secondary);
+    margin-bottom: 3rem;
+    font-size: 1.1rem;
+}
+
+.mutation-types {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.mutation-card {
+    background: var(--dark-bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 1.5rem;
+    transition: all 0.3s ease;
+}
+
+.mutation-card:hover {
+    transform: translateY(-3px);
+    border-color: var(--primary-color);
+    box-shadow: 0 5px 15px rgba(124, 58, 237, 0.2);
+}
+
+.mutation-card h3 {
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+}
+
+.mutation-card p {
+    color: var(--text-secondary);
+    line-height: 1.6;
+}
+
+.mutation-tips {
+    background: var(--dark-bg-secondary);
+    border-radius: 12px;
+    padding: 2rem;
+    border: 1px solid var(--border-color);
+}
+
+.mutation-tips h3 {
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+}
+
+.mutation-tips ul {
+    list-style: none;
+    padding: 0;
+}
+
+.mutation-tips li {
+    color: var(--text-secondary);
+    padding: 0.75rem 0;
+    padding-left: 2rem;
+    position: relative;
+    line-height: 1.6;
+}
+
+.mutation-tips li::before {
+    content: '🧬';
+    position: absolute;
+    left: 0;
+}
+
+/* Planting Strategies */
+.planting-strategies {
+    padding: 4rem 0;
+    background: var(--dark-bg-secondary);
+}
+
+.planting-strategies h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.strategy-section {
+    background: var(--dark-bg);
+    border-radius: 12px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    border: 1px solid var(--border-color);
+}
+
+.strategy-section h3 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+}
+
+.strategy-section p {
+    color: var(--text-secondary);
+    line-height: 1.8;
+}
+
+.formation-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.formation {
+    background: var(--dark-bg-secondary);
+    padding: 1.5rem;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+}
+
+.formation h4 {
+    color: var(--accent-color);
+    margin-bottom: 0.75rem;
+}
+
+.formation p {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+/* Tier List */
+.tier-list {
+    padding: 4rem 0;
+}
+
+.tier-list h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.tier-section {
+    background: var(--dark-bg-secondary);
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    border-left: 5px solid;
+}
+
+.tier-section.s-tier {
+    border-left-color: #ff0000;
+}
+
+.tier-section.a-tier {
+    border-left-color: #ff8c00;
+}
+
+.tier-section.b-tier {
+    border-left-color: #ffd700;
+}
+
+.tier-section.c-tier {
+    border-left-color: #90ee90;
+}
+
+.tier-section h3 {
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+}
+
+.tier-plants {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.tier-plant {
+    background: var(--dark-bg);
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    border: 1px solid var(--border-color);
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+}
+
+.tier-plant:hover {
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .rarity-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .plant-stats {
+        grid-template-columns: 1fr;
+    }
+
+    .mutation-types {
+        grid-template-columns: 1fr;
+    }
+
+    .formation-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .tier-plants {
+        flex-direction: column;
+    }
+}

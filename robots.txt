@@ -1,0 +1,60 @@
+# Robots.txt for PlantsVsBrainrotsCodes.com
+# Allow all web crawlers to index all content
+
+User-agent: *
+Allow: /
+Crawl-delay: 1
+
+# Sitemap location
+Sitemap: https://plantsvsbrainrotscodes.com/sitemap.xml
+
+# Specific bot instructions
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 0
+
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
+
+User-agent: Slurp
+Allow: /
+Crawl-delay: 1
+
+User-agent: DuckDuckBot
+Allow: /
+Crawl-delay: 1
+
+# Block bad bots
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: SemrushBot
+Disallow: /
+
+User-agent: DotBot
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /
+
+# Allow access to CSS and JS files
+User-agent: *
+Allow: /css/
+Allow: /js/
+Allow: /images/
+
+# No restrictions on any pages
+User-agent: *
+Allow: /codes
+Allow: /plants
+Allow: /brainrots
+Allow: /bosses
+Allow: /fusion
+Allow: /gameplay
+Allow: /rebirth
+Allow: /mutations
+Allow: /tier-list
+Allow: /updates
+Allow: /tips
+Allow: /faq

@@ -1,0 +1,971 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fusion Guide - All PvB Fusion Recipes & Tips 2025</title>
+    <meta name="description" content="Master Plants vs Brainrots fusion. Unlock Fuse Machine, all fusion recipes including Los Mr Carrotitos. Rebirth requirements and tips.">
+    <meta name="keywords" content="plants vs brainrots fusion, how to fuse plants vs brainrots, fusion recipes pvb, los mr carrotitos recipe, fuse machine guide, rebirth requirements plants vs brainrots, best fusion combinations 2025">
+    <meta property="og:title" content="Plants vs Brainrots - Complete Fusion Guide & All Recipes">
+    <meta property="og:description" content="Master the Fuse Machine in Plants vs Brainrots with our complete fusion guide and recipe list.">
+    <meta property="og:url" content="https://plantsvsbrainrotscodes.com/fusion">
+    <link rel="canonical" href="https://plantsvsbrainrotscodes.com/fusion">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/guides.css">
+    <style>
+        .fusion-header {
+            background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+        }
+        .fusion-recipe {
+            background: var(--dark-bg);
+            border: 2px solid var(--border-color);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        .fusion-recipe:hover {
+            border-color: var(--accent-color);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(245, 158, 11, 0.2);
+        }
+        .fusion-recipe::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #f59e0b, #d97706);
+        }
+        .recipe-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+        .recipe-name {
+            font-size: 1.5rem;
+            color: var(--accent-color);
+            font-weight: 700;
+        }
+        .recipe-rarity {
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            color: white;
+        }
+        .rarity-common { background: #64748b; }
+        .rarity-rare { background: #3b82f6; }
+        .rarity-epic { background: #8b5cf6; }
+        .rarity-legendary { background: #f59e0b; }
+        .rarity-mythic { background: #ef4444; }
+        .rarity-secret { background: linear-gradient(90deg, #ff0080, #ff8c00); }
+        .recipe-formula {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem;
+            background: var(--dark-bg-secondary);
+            border-radius: 8px;
+            margin-bottom: 1rem;
+        }
+        .recipe-component {
+            padding: 0.5rem 1rem;
+            background: var(--dark-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            color: var(--text-primary);
+        }
+        .fusion-arrow {
+            color: var(--accent-color);
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        .recipe-result {
+            padding: 0.5rem 1rem;
+            background: linear-gradient(135deg, #f59e0b20, #d9770620);
+            border: 2px solid var(--accent-color);
+            border-radius: 8px;
+            color: var(--accent-color);
+            font-weight: 700;
+        }
+        .recipe-income {
+            display: inline-block;
+            background: var(--dark-bg-secondary);
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            margin-right: 1rem;
+        }
+        .income-label {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+        .income-value {
+            color: var(--success-color);
+            font-size: 1.25rem;
+            font-weight: 700;
+        }
+        .fusion-time {
+            display: inline-block;
+            background: var(--dark-bg-secondary);
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+        }
+        .time-label {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+        .time-value {
+            color: var(--primary-color);
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+        .warning-box {
+            background: rgba(239, 68, 68, 0.1);
+            border: 2px solid var(--danger-color);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin: 2rem 0;
+        }
+        .warning-box h3 {
+            color: var(--danger-color);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .warning-box ul {
+            list-style: none;
+            padding: 0;
+        }
+        .warning-box li {
+            color: var(--text-secondary);
+            padding: 0.5rem 0;
+            padding-left: 2rem;
+            position: relative;
+        }
+        .warning-box li::before {
+            content: '⚠️';
+            position: absolute;
+            left: 0;
+        }
+        .rebirth-requirements {
+            background: var(--dark-bg-secondary);
+            border: 2px solid var(--primary-color);
+            border-radius: 12px;
+            padding: 2rem;
+            margin: 2rem 0;
+        }
+        .requirement-item {
+            display: flex;
+            align-items: center;
+            padding: 1rem 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+        .requirement-item:last-child {
+            border-bottom: none;
+        }
+        .requirement-icon {
+            font-size: 2rem;
+            margin-right: 1rem;
+        }
+        .requirement-text {
+            flex: 1;
+        }
+        .requirement-name {
+            color: var(--text-primary);
+            font-weight: 600;
+            display: block;
+        }
+        .requirement-desc {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+        .fusion-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        .step-card {
+            background: var(--dark-bg-secondary);
+            border-radius: 12px;
+            padding: 1.5rem;
+            position: relative;
+            border: 1px solid var(--border-color);
+            transition: all 0.3s ease;
+        }
+        .step-card:hover {
+            border-color: var(--primary-color);
+            transform: translateY(-3px);
+        }
+        .step-number {
+            position: absolute;
+            top: -15px;
+            left: 20px;
+            background: var(--accent-color);
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+        }
+        .step-title {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+            margin-top: 0.5rem;
+        }
+        .step-desc {
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <a href="/">Plants vs Brainrots Codes</a>
+            </div>
+            <button class="nav-toggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-menu">
+                <li><a href="/">Home</a></li>
+                <li><a href="/codes">Codes</a></li>
+                <li><a href="/gameplay">How to Play</a></li>
+                <li><a href="/plants">Plants</a></li>
+                <li><a href="/brainrots">Brainrots</a></li>
+                <li><a href="/bosses">Bosses</a></li>
+                <li><a href="/fusion" class="active">Fusion</a></li>
+                <li><a href="/rebirth">Rebirth</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header class="page-header fusion-header">
+        <div class="container">
+            <h1>Plants vs Brainrots Fuse Machine Guide</h1>
+            <p>Learn how to fuse plants and brainrots for maximum income</p>
+        </div>
+    </header>
+
+    <main>
+        <section class="guide-intro">
+            <div class="container">
+                <h2>How Plants vs Brainrots Fuse System Works</h2>
+                <p>Plants vs Brainrots fuse mechanics unlock game-changing income opportunities when you combine plants with brainrots. The PvB fuse system becomes available after your first rebirth, letting you fuse specific plants and brainrots into exclusive hybrid units. When you fuse in Plants vs Brainrots, you're creating income generators that never spawn naturally. The Plants vs Brainrots fuse combinations can produce incredible results - Los Mr Carrotitos from fusing generates $34,300 per second, showcasing why mastering PvB fuse strategies is essential for progression.</p>
+
+                <p>To fuse Plants vs Brainrots units effectively, you need more than just knowing recipes - timing matters when you sacrifice components. Every PvB fuse decision is permanent; once you fuse plants and brainrots in the machine, they're gone forever, replaced by your new fused unit. This makes Plants vs Brainrots fuse choices high-stakes decisions. When you fuse rare plants or mutated brainrots in PvB, those units disappear permanently, and mutations won't carry over when you fuse Plants vs Brainrots components.</p>
+
+                <p>The Plants vs Brainrots Fuse Machine sits right of the brainrot spawn area, unlocking after your first rebirth. To access PvB fuse features, you'll need $1,000,000 plus specific high-tier brainrots, making the ability to fuse Plants vs Brainrots units a true endgame goal. The payoff for learning to fuse in Plants vs Brainrots is massive - fused brainrots from the PvB fuse system generate more income than natural mythic spawns. Even mid-tier Plants vs Brainrots fuse results outperform most standard brainrots for passive earnings.</p>
+            </div>
+        </section>
+
+        <section class="rebirth-unlock">
+            <div class="container">
+                <h2>Unlock Plants vs Brainrots Fuse Machine via Rebirth</h2>
+                <p>To fuse Plants vs Brainrots components, you must first complete rebirth - a reset that grants permanent bonuses including PvB fuse access. Understanding when to rebirth determines how quickly you can start to fuse plants and brainrots for income multiplication.</p>
+
+                <div class="rebirth-requirements">
+                    <h3>First Rebirth Requirements</h3>
+                    <div class="requirement-item">
+                        <span class="requirement-icon">💰</span>
+                        <div class="requirement-text">
+                            <span class="requirement-name">$1,000,000 Cash</span>
+                            <span class="requirement-desc">Save $1M to unlock Plants vs Brainrots fuse capabilities</span>
+                        </div>
+                    </div>
+                    <div class="requirement-item">
+                        <span class="requirement-icon">💣</span>
+                        <div class="requirement-text">
+                            <span class="requirement-name">Bombini Gussini (Mythic)</span>
+                            <span class="requirement-desc">Required to unlock PvB fuse machine access</span>
+                        </div>
+                    </div>
+                    <div class="requirement-item">
+                        <span class="requirement-icon">🎵</span>
+                        <div class="requirement-text">
+                            <span class="requirement-name">Tralalelo Tralala (Godly)</span>
+                            <span class="requirement-desc">Needed before you can fuse Plants vs Brainrots units</span>
+                        </div>
+                    </div>
+                </div>
+
+                <h3>What Happens During Rebirth</h3>
+                <div class="strategy-section">
+                    <h4>What You Lose:</h4>
+                    <ul>
+                        <li>All accumulated cash resets to starting amount</li>
+                        <li>All collected brainrots are removed from your inventory</li>
+                        <li>Platform-placed brainrots disappear</li>
+                        <li>Current income stream temporarily stops</li>
+                    </ul>
+
+                    <h4>What You Keep:</h4>
+                    <ul>
+                        <li>All plants in your garden remain intact</li>
+                        <li>Plant inventory is preserved</li>
+                        <li>Any purchased seeds stay in inventory</li>
+                        <li>Game knowledge and strategies</li>
+                    </ul>
+
+                    <h4>Permanent Benefits Gained:</h4>
+                    <ul>
+                        <li>+50% luck for rare brainrot spawns</li>
+                        <li>+50% money earned from all sources</li>
+                        <li>Larger island for placing more brainrots</li>
+                        <li>Ability to fuse Plants vs Brainrots components</li>
+                        <li>Higher-tier boss spawns</li>
+                    </ul>
+                </div>
+
+                <h3>Optimal Rebirth Timing Strategy</h3>
+                <p>Rebirth when income plateaus to unlock Plants vs Brainrots fuse features sooner. This happens when your island fills with high-tier brainrots and you need the PvB fuse system for progression. Before rebirthing to access Plants vs Brainrots fuse capabilities, transfer valuable brainrots to friends for safekeeping. The 50% income boost makes rushing to fuse Plants vs Brainrots units often better than waiting for perfect conditions.</p>
+            </div>
+        </section>
+
+        <section class="how-to-fuse">
+            <div class="container">
+                <h2>How to Fuse Plants vs Brainrots Components</h2>
+                <p>Operating the PvB fuse machine successfully means understanding exactly how to fuse Plants vs Brainrots units without losing resources to bugs or mistakes.</p>
+
+                <div class="fusion-steps">
+                    <div class="step-card">
+                        <span class="step-number">1</span>
+                        <h3 class="step-title">Check Inventory Space</h3>
+                        <p class="step-desc">Before you fuse Plants vs Brainrots components, clear 3-4 inventory slots. Full inventory when PvB fuse completes means permanent loss of your fused unit due to a game bug.</p>
+                    </div>
+
+                    <div class="step-card">
+                        <span class="step-number">2</span>
+                        <h3 class="step-title">Place the Plant</h3>
+                        <p class="step-desc">Place your plant in the Plants vs Brainrots fuse machine. The PvB fuse interface shows exactly which brainrot you need to fuse with that plant.</p>
+                    </div>
+
+                    <div class="step-card">
+                        <span class="step-number">3</span>
+                        <h3 class="step-title">Add the Brainrot</h3>
+                        <p class="step-desc">Add the matching brainrot to fuse Plants vs Brainrots components together. Each PvB fuse recipe has fixed pairings - you can't substitute when you fuse.</p>
+                    </div>
+
+                    <div class="step-card">
+                        <span class="step-number">4</span>
+                        <h3 class="step-title">Activate the Machine</h3>
+                        <p class="step-desc">Hold E key to activate Plants vs Brainrots fuse process. Keep holding until the PvB fuse animation starts.</p>
+                    </div>
+
+                    <div class="step-card">
+                        <span class="step-number">5</span>
+                        <h3 class="step-title">Wait for Completion</h3>
+                        <p class="step-desc">Plants vs Brainrots fuse times range from 3-5 minutes. Premium PvB fuse results like Los Mr Carrotitos take the full 5 minutes.</p>
+                    </div>
+
+                    <div class="step-card">
+                        <span class="step-number">6</span>
+                        <h3 class="step-title">Receive Your Fusion</h3>
+                        <p class="step-desc">Your Plants vs Brainrots fuse result appears in inventory automatically. Verify the PvB fuse succeeded before starting your next fusion.</p>
+                    </div>
+                </div>
+
+                <div class="warning-box">
+                    <h3>⚠️ Critical Fusion Warnings</h3>
+                    <ul>
+                        <li><strong>Inventory Overflow = Permanent Loss:</strong> Full inventory when Plants vs Brainrots fuse completes deletes your result forever. This is the worst PvB fuse mistake possible.</li>
+                        <li><strong>Mutations Don't Transfer:</strong> When you fuse Plants vs Brainrots mutated units, the PvB fuse result is always the base version without mutations.</li>
+                        <li><strong>Size is Random:</strong> Large components don't mean large results when you fuse Plants vs Brainrots units. PvB fuse size is always random.</li>
+                        <li><strong>Components Are Consumed:</strong> Plants vs Brainrots fuse process destroys both inputs permanently. Once you fuse, there's no undo.</li>
+                        <li><strong>One Fusion at a Time:</strong> The single Plants vs Brainrots fuse machine means one PvB fuse at a time, bottlenecking mass production.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="all-recipes">
+            <div class="container">
+                <h2>All Plants vs Brainrots Fuse Recipes</h2>
+                <p>Every PvB fuse recipe pairs one plant with one brainrot exactly. Here's how to fuse Plants vs Brainrots components for each available combination, sorted by rarity and income.</p>
+
+                <h3>Secret Tier Fusions (Highest Value)</h3>
+
+                <div class="fusion-recipe">
+                    <div class="recipe-header">
+                        <span class="recipe-name">Los Mr Carrotitos</span>
+                        <span class="recipe-rarity rarity-secret">SECRET</span>
+                    </div>
+                    <div class="recipe-formula">
+                        <span class="recipe-component">🥕 Mr Carrot</span>
+                        <span class="fusion-arrow">+</span>
+                        <span class="recipe-component">🎭 Los Tralaleritos</span>
+                        <span class="fusion-arrow">→</span>
+                        <span class="recipe-result">Los Mr Carrotitos</span>
+                    </div>
+                    <div class="recipe-stats">
+                        <span class="recipe-income">
+                            <span class="income-label">Income:</span>
+                            <span class="income-value">$34,300/sec</span>
+                        </span>
+                        <span class="fusion-time">
+                            <span class="time-label">Fusion Time:</span>
+                            <span class="time-value">5 minutes</span>
+                        </span>
+                    </div>
+                    <p>The ultimate Plants vs Brainrots fuse result, Los Mr Carrotitos generates unmatched income. This PvB fuse combination represents peak economic power - when you fuse these Plants vs Brainrots components, the income dwarfs natural spawns. Essential for anyone serious about PvB fuse optimization.</p>
+                </div>
+
+                <h3>Mythic Tier Fusions</h3>
+
+                <div class="fusion-recipe">
+                    <div class="recipe-header">
+                        <span class="recipe-name">Carnivourita Tralalerita</span>
+                        <span class="recipe-rarity rarity-mythic">MYTHIC</span>
+                    </div>
+                    <div class="recipe-formula">
+                        <span class="recipe-component">🌺 Carnivorous Plant</span>
+                        <span class="fusion-arrow">+</span>
+                        <span class="recipe-component">🎵 Tralalero Tralala</span>
+                        <span class="fusion-arrow">→</span>
+                        <span class="recipe-result">Carnivourita Tralalerita</span>
+                    </div>
+                    <div class="recipe-stats">
+                        <span class="recipe-income">
+                            <span class="income-label">Income:</span>
+                            <span class="income-value">$8,500/sec</span>
+                        </span>
+                        <span class="fusion-time">
+                            <span class="time-label">Fusion Time:</span>
+                            <span class="time-value">4 minutes</span>
+                        </span>
+                    </div>
+                    <p>This Plants vs Brainrots fuse recipe combines legendary plant with godly brainrot. The PvB fuse result maintains strong income while adding visual flair that makes fused units stand out.</p>
+                </div>
+
+                <div class="fusion-recipe">
+                    <div class="recipe-header">
+                        <span class="recipe-name">Dragonfruitina Dolphinita</span>
+                        <span class="recipe-rarity rarity-mythic">MYTHIC</span>
+                    </div>
+                    <div class="recipe-formula">
+                        <span class="recipe-component">🐉 Dragon Fruit</span>
+                        <span class="fusion-arrow">+</span>
+                        <span class="recipe-component">🐬 Dolphin</span>
+                        <span class="fusion-arrow">→</span>
+                        <span class="recipe-result">Dragonfruitina Dolphinita</span>
+                    </div>
+                    <div class="recipe-stats">
+                        <span class="recipe-income">
+                            <span class="income-label">Income:</span>
+                            <span class="income-value">$800/sec</span>
+                        </span>
+                        <span class="fusion-time">
+                            <span class="time-label">Fusion Time:</span>
+                            <span class="time-value">4 minutes</span>
+                        </span>
+                    </div>
+                    <p>A mid-tier Plants vs Brainrots fuse option with accessible components. Players learning to fuse Plants vs Brainrots often start here for mythic-tier income.</p>
+                </div>
+
+                <h3>Legendary Tier Fusions</h3>
+
+                <div class="fusion-recipe">
+                    <div class="recipe-header">
+                        <span class="recipe-name">Cocotanko Giraffanto</span>
+                        <span class="recipe-rarity rarity-legendary">LEGENDARY</span>
+                    </div>
+                    <div class="recipe-formula">
+                        <span class="recipe-component">🥥 Cocotank</span>
+                        <span class="fusion-arrow">+</span>
+                        <span class="recipe-component">🦒 Giraffa Celeste</span>
+                        <span class="fusion-arrow">→</span>
+                        <span class="recipe-result">Cocotanko Giraffanto</span>
+                    </div>
+                    <div class="recipe-stats">
+                        <span class="recipe-income">
+                            <span class="income-label">Income:</span>
+                            <span class="income-value">$3,200/sec</span>
+                        </span>
+                        <span class="fusion-time">
+                            <span class="time-label">Fusion Time:</span>
+                            <span class="time-value">4 minutes</span>
+                        </span>
+                    </div>
+                    <p>Fuse Plants vs Brainrots tank and giraffe for impressive results. This PvB fuse combo delivers both style and income for your collection.</p>
+                </div>
+
+                <div class="fusion-recipe">
+                    <div class="recipe-header">
+                        <span class="recipe-name">Eggplantini Burbalonini</span>
+                        <span class="recipe-rarity rarity-legendary">LEGENDARY</span>
+                    </div>
+                    <div class="recipe-formula">
+                        <span class="recipe-component">🍆 Eggplant</span>
+                        <span class="fusion-arrow">+</span>
+                        <span class="recipe-component">🎈 Burbaloni</span>
+                        <span class="fusion-arrow">→</span>
+                        <span class="recipe-result">Eggplantini Burbalonini</span>
+                    </div>
+                    <div class="recipe-stats">
+                        <span class="recipe-income">
+                            <span class="income-label">Income:</span>
+                            <span class="income-value">$2,100/sec</span>
+                        </span>
+                        <span class="fusion-time">
+                            <span class="time-label">Fusion Time:</span>
+                            <span class="time-value">3.5 minutes</span>
+                        </span>
+                    </div>
+                    <p>This Plants vs Brainrots fuse recipe turns common into legendary. Proof that smart PvB fuse choices beat rarity when you fuse Plants vs Brainrots basics.</p>
+                </div>
+
+                <div class="fusion-recipe">
+                    <div class="recipe-header">
+                        <span class="recipe-name">TV Lemonini</span>
+                        <span class="recipe-rarity rarity-legendary">LEGENDARY</span>
+                    </div>
+                    <div class="recipe-formula">
+                        <span class="recipe-component">🍋 Tele Lemon</span>
+                        <span class="fusion-arrow">+</span>
+                        <span class="recipe-component">📺 TV Man</span>
+                        <span class="fusion-arrow">→</span>
+                        <span class="recipe-result">TV Lemonini</span>
+                    </div>
+                    <div class="recipe-stats">
+                        <span class="recipe-income">
+                            <span class="income-label">Income:</span>
+                            <span class="income-value">$1,800/sec</span>
+                        </span>
+                        <span class="fusion-time">
+                            <span class="time-label">Fusion Time:</span>
+                            <span class="time-value">3.5 minutes</span>
+                        </span>
+                    </div>
+                    <p>Fuse Plants vs Brainrots tech and nature for this hybrid. The PvB fuse result brings steady income with unique visuals.</p>
+                </div>
+
+                <div class="fusion-recipe">
+                    <div class="recipe-header">
+                        <span class="recipe-name">Strawbrangoity</span>
+                        <span class="recipe-rarity rarity-legendary">LEGENDARY</span>
+                    </div>
+                    <div class="recipe-formula">
+                        <span class="recipe-component">🍓 Strawberry</span>
+                        <span class="fusion-arrow">+</span>
+                        <span class="recipe-component">🥭 Mango</span>
+                        <span class="fusion-arrow">→</span>
+                        <span class="recipe-result">Strawbrangoity</span>
+                    </div>
+                    <div class="recipe-stats">
+                        <span class="recipe-income">
+                            <span class="income-label">Income:</span>
+                            <span class="income-value">$1,500/sec</span>
+                        </span>
+                        <span class="fusion-time">
+                            <span class="time-label">Fusion Time:</span>
+                            <span class="time-value">3.5 minutes</span>
+                        </span>
+                    </div>
+                    <p>Sweet Plants vs Brainrots fuse combo with solid returns. Mid-game players love this PvB fuse for its efficiency.</p>
+                </div>
+
+                <h3>Epic Tier Fusions</h3>
+
+                <div class="fusion-recipe">
+                    <div class="recipe-header">
+                        <span class="recipe-name">Bombardilo Watermelondrilo</span>
+                        <span class="recipe-rarity rarity-epic">EPIC</span>
+                    </div>
+                    <div class="recipe-formula">
+                        <span class="recipe-component">🍉 Watermelon</span>
+                        <span class="fusion-arrow">+</span>
+                        <span class="recipe-component">💣 Bombini</span>
+                        <span class="fusion-arrow">→</span>
+                        <span class="recipe-result">Bombardilo Watermelondrilo</span>
+                    </div>
+                    <div class="recipe-stats">
+                        <span class="recipe-income">
+                            <span class="income-label">Income:</span>
+                            <span class="income-value">$650/sec</span>
+                        </span>
+                        <span class="fusion-time">
+                            <span class="time-label">Fusion Time:</span>
+                            <span class="time-value">3 minutes</span>
+                        </span>
+                    </div>
+                    <p>Explosive Plants vs Brainrots fuse result from combining AOE and bomb units. Great first PvB fuse for players learning to fuse Plants vs Brainrots effectively.</p>
+                </div>
+
+                <div class="fusion-recipe">
+                    <div class="recipe-header">
+                        <span class="recipe-name">Brr Brr Sunflowerini</span>
+                        <span class="recipe-rarity rarity-epic">EPIC</span>
+                    </div>
+                    <div class="recipe-formula">
+                        <span class="recipe-component">🌻 Sunflower</span>
+                        <span class="fusion-arrow">+</span>
+                        <span class="recipe-component">❄️ Brr Brr Patapim</span>
+                        <span class="fusion-arrow">→</span>
+                        <span class="recipe-result">Brr Brr Sunflowerini</span>
+                    </div>
+                    <div class="recipe-stats">
+                        <span class="recipe-income">
+                            <span class="income-label">Income:</span>
+                            <span class="income-value">$450/sec</span>
+                        </span>
+                        <span class="fusion-time">
+                            <span class="time-label">Fusion Time:</span>
+                            <span class="time-value">3 minutes</span>
+                        </span>
+                    </div>
+                    <p>Ice-type Plants vs Brainrots fuse variant of Sunflower. This PvB fuse gains bonuses during frozen events.</p>
+                </div>
+
+                <h3>Rare Tier Fusions</h3>
+
+                <div class="fusion-recipe">
+                    <div class="recipe-header">
+                        <span class="recipe-name">Toilini Peaito</span>
+                        <span class="recipe-rarity rarity-rare">RARE</span>
+                    </div>
+                    <div class="recipe-formula">
+                        <span class="recipe-component">🟢 Pea Shooter</span>
+                        <span class="fusion-arrow">+</span>
+                        <span class="recipe-component">🚽 Toilet</span>
+                        <span class="fusion-arrow">→</span>
+                        <span class="recipe-result">Toilini Peaito</span>
+                    </div>
+                    <div class="recipe-stats">
+                        <span class="recipe-income">
+                            <span class="income-label">Income:</span>
+                            <span class="income-value">$120/sec</span>
+                        </span>
+                        <span class="fusion-time">
+                            <span class="time-label">Fusion Time:</span>
+                            <span class="time-value">3 minutes</span>
+                        </span>
+                    </div>
+                    <p>Meme-tier Plants vs Brainrots fuse that new players try first. Easy PvB fuse to learn the system.</p>
+                </div>
+
+                <h3>Common Tier Fusions</h3>
+
+                <div class="fusion-recipe">
+                    <div class="recipe-header">
+                        <span class="recipe-name">Noobini Cactusini</span>
+                        <span class="recipe-rarity rarity-common">COMMON</span>
+                    </div>
+                    <div class="recipe-formula">
+                        <span class="recipe-component">🦷 Lil Chomper</span>
+                        <span class="fusion-arrow">+</span>
+                        <span class="recipe-component">🆕 Noob</span>
+                        <span class="fusion-arrow">→</span>
+                        <span class="recipe-result">Noobini Cactusini</span>
+                    </div>
+                    <div class="recipe-stats">
+                        <span class="recipe-income">
+                            <span class="income-label">Income:</span>
+                            <span class="income-value">$25/sec</span>
+                        </span>
+                        <span class="fusion-time">
+                            <span class="time-label">Fusion Time:</span>
+                            <span class="time-value">3 minutes</span>
+                        </span>
+                    </div>
+                    <p>Starter Plants vs Brainrots fuse for learning. Safe way to understand PvB fuse mechanics.</p>
+                </div>
+
+                <div class="fusion-recipe">
+                    <div class="recipe-header">
+                        <span class="recipe-name">Cactu Carrito</span>
+                        <span class="recipe-rarity rarity-common">COMMON</span>
+                    </div>
+                    <div class="recipe-formula">
+                        <span class="recipe-component">🌵 Cactus</span>
+                        <span class="fusion-arrow">+</span>
+                        <span class="recipe-component">🥕 Carrot</span>
+                        <span class="fusion-arrow">→</span>
+                        <span class="recipe-result">Cactu Carrito</span>
+                    </div>
+                    <div class="recipe-stats">
+                        <span class="recipe-income">
+                            <span class="income-label">Income:</span>
+                            <span class="income-value">$35/sec</span>
+                        </span>
+                        <span class="fusion-time">
+                            <span class="time-label">Fusion Time:</span>
+                            <span class="time-value">3 minutes</span>
+                        </span>
+                    </div>
+                    <p>Basic Plants vs Brainrots fuse with common components. Good PvB fuse for testing.</p>
+                </div>
+
+                <div class="special-note">
+                    <h3>📝 Special Note</h3>
+                    <p><strong>Tomatiro Exception:</strong> Tomatiro can't fuse in Plants vs Brainrots yet. No PvB fuse recipe exists, but updates may add one.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="fusion-strategies">
+            <div class="container">
+                <h2>Advanced Plants vs Brainrots Fuse Strategies</h2>
+                <p>To truly master Plants vs Brainrots fuse mechanics, you need strategy beyond recipes. Smart PvB fuse timing and resource management separate pros from beginners.</p>
+
+                <div class="strategy-section">
+                    <h3>Early Game Fusion Strategy (Pre-Rebirth Planning)</h3>
+                    <p>Before rebirthing to unlock Plants vs Brainrots fuse features, collect components for your target PvB fuse recipes. Since rebirth deletes brainrots but keeps plants, get rare plants ready to fuse Plants vs Brainrots units immediately. Store Mr. Carrot and other premium plants unplanted so they survive for PvB fuse combos post-rebirth.</p>
+                </div>
+
+                <div class="strategy-section">
+                    <h3>Post-Rebirth Fusion Priority</h3>
+                    <p>Once you can fuse Plants vs Brainrots components, don't waste time on common PvB fuse recipes. Use your rebirth luck boost to get premium brainrots for high-value Plants vs Brainrots fuse combos. If you can fuse Los Mr Carrotitos first, that single PvB fuse beats dozens of common fusions for income.</p>
+                </div>
+
+                <div class="strategy-section">
+                    <h3>Component Value Assessment</h3>
+                    <p>Calculate value before you fuse Plants vs Brainrots components. A mutated unit making $15/second shouldn't be used to fuse for $25/second PvB results. Compare total income lost versus Plants vs Brainrots fuse gains, remembering mutations don't transfer in PvB fuse.</p>
+                </div>
+
+                <div class="strategy-section">
+                    <h3>Fusion Queue Management</h3>
+                    <p>The single Plants vs Brainrots fuse machine means smart queuing matters. Fuse income-focused PvB combinations when broke, collection pieces when rich. During active play, fuse Plants vs Brainrots 3-minute recipes. Before logging, start 5-minute PvB fuse for efficiency.</p>
+                </div>
+
+                <div class="strategy-section">
+                    <h3>Weather Event Optimization</h3>
+                    <p>Some Plants vs Brainrots fuse results gain weather bonuses. Time your PvB fuse to finish before frozen surges for instant benefits. Schedule when you fuse Plants vs Brainrots ice types around these 2-hour events.</p>
+                </div>
+
+                <div class="strategy-section">
+                    <h3>Inventory Management Protocol</h3>
+                    <p>Never fuse Plants vs Brainrots without checking inventory. Keep 20% free space minimum before any PvB fuse. For premium Plants vs Brainrots fuse like Los Mr Carrotitos, clear 30-40% to avoid the overflow bug that deletes PvB fuse results.</p>
+                </div>
+
+                <div class="strategy-section">
+                    <h3>Trading Circle Strategy</h3>
+                    <p>Build a network to trade Plants vs Brainrots fuse components. Gift duplicate PvB fuse materials to friends who'll return the favor. Social trading speeds up how fast you can fuse Plants vs Brainrots recipes.</p>
+                </div>
+
+                <div class="strategy-section">
+                    <h3>Long-Term Fusion Goals</h3>
+                    <p>Plan which Plants vs Brainrots fuse recipes match your goals. Income players should fuse highest-earning PvB combos only. Collectors need every Plants vs Brainrots fuse for completion. Competitors rush top PvB fuse like Los Mr Carrotitos for leaderboard dominance.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="fusion-economics">
+            <div class="container">
+                <h2>Plants vs Brainrots Fuse Economics & ROI</h2>
+                <p>Understanding PvB fuse economics determines which Plants vs Brainrots fuse decisions maximize returns.</p>
+
+                <div class="income-table">
+                    <h3>PvB Fuse Income Comparison</h3>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>PvB Fuse Result</th>
+                                <th>Component Cost</th>
+                                <th>Base Income/sec</th>
+                                <th>ROI Time</th>
+                                <th>Efficiency Rating</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Los Mr Carrotitos</td>
+                                <td>Legendary + Secret</td>
+                                <td>$34,300</td>
+                                <td>Immediate</td>
+                                <td>⭐⭐⭐⭐⭐</td>
+                            </tr>
+                            <tr>
+                                <td>Carnivourita Tralalerita</td>
+                                <td>Mythic + Godly</td>
+                                <td>$8,500</td>
+                                <td>5 minutes</td>
+                                <td>⭐⭐⭐⭐⭐</td>
+                            </tr>
+                            <tr>
+                                <td>Cocotanko Giraffanto</td>
+                                <td>Mythic + Epic</td>
+                                <td>$3,200</td>
+                                <td>15 minutes</td>
+                                <td>⭐⭐⭐⭐</td>
+                            </tr>
+                            <tr>
+                                <td>Eggplantini Burbalonini</td>
+                                <td>Common + Rare</td>
+                                <td>$2,100</td>
+                                <td>10 minutes</td>
+                                <td>⭐⭐⭐⭐</td>
+                            </tr>
+                            <tr>
+                                <td>TV Lemonini</td>
+                                <td>Epic + Rare</td>
+                                <td>$1,800</td>
+                                <td>20 minutes</td>
+                                <td>⭐⭐⭐</td>
+                            </tr>
+                            <tr>
+                                <td>Bombardilo Watermelondrilo</td>
+                                <td>Epic + Mythic</td>
+                                <td>$650</td>
+                                <td>45 minutes</td>
+                                <td>⭐⭐⭐</td>
+                            </tr>
+                            <tr>
+                                <td>Toilini Peaito</td>
+                                <td>Common + Common</td>
+                                <td>$120</td>
+                                <td>2 hours</td>
+                                <td>⭐⭐</td>
+                            </tr>
+                            <tr>
+                                <td>Noobini Cactusini</td>
+                                <td>Common + Common</td>
+                                <td>$25</td>
+                                <td>5 hours</td>
+                                <td>⭐</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h3>Break-Even Analysis</h3>
+                <p>Most Plants vs Brainrots fuse results break even within 30 minutes to 2 hours. Top PvB fuse like Los Mr Carrotitos profit immediately from massive income. Consider the 3-5 minute Plants vs Brainrots fuse time when calculating opportunity cost during events.</p>
+
+                <h3>Market Timing Considerations</h3>
+                <p>Plants vs Brainrots fuse values change with updates. Balance patches affect which PvB fuse combinations matter most. Stock components for Plants vs Brainrots fuse recipes before buffs hit, and fuse weaker PvB combos before nerfs.</p>
+            </div>
+        </section>
+
+        <section class="troubleshooting">
+            <div class="container">
+                <h2>Plants vs Brainrots Fuse Problems & Fixes</h2>
+
+                <div class="faq-container">
+                    <div class="faq-item">
+                        <h3>My Plants vs Brainrots fuse result vanished!</h3>
+                        <p>Full inventory when PvB fuse completes causes permanent deletion. Always clear space before you fuse Plants vs Brainrots components. Lost PvB fuse results can't be recovered.</p>
+                    </div>
+
+                    <div class="faq-item">
+                        <h3>Why didn't mutations transfer when I fuse Plants vs Brainrots?</h3>
+                        <p>PvB fuse never transfers mutations by design. Every Plants vs Brainrots fuse produces base versions. Don't fuse mutated units unless the PvB fuse income beats their current value.</p>
+                    </div>
+
+                    <div class="faq-item">
+                        <h3>Plants vs Brainrots fuse machine won't accept my combo</h3>
+                        <p>Each PvB fuse recipe has fixed pairings. The Plants vs Brainrots fuse machine shows requirements after placing plants. Check valid PvB fuse combinations above.</p>
+                    </div>
+
+                    <div class="faq-item">
+                        <h3>Can I cancel Plants vs Brainrots fuse in progress?</h3>
+                        <p>No, PvB fuse can't be cancelled once started. Components disappear instantly when you fuse Plants vs Brainrots units.</p>
+                    </div>
+
+                    <div class="faq-item">
+                        <h3>Why is my Plants vs Brainrots fuse taking so long?</h3>
+                        <p>PvB fuse times are 3-5 minutes by rarity. Lag can add 30-60 seconds to Plants vs Brainrots fuse duration. If stuck over 6 minutes, report but stay in-game or lose everything.</p>
+                    </div>
+
+                    <div class="faq-item">
+                        <h3>Can I speed up Plants vs Brainrots fuse time?</h3>
+                        <p>No way to accelerate PvB fuse currently. Speed Potions don't affect Plants vs Brainrots fuse duration. Plan your fusing around breaks.</p>
+                    </div>
+
+                    <div class="faq-item">
+                        <h3>Should I fuse my only Mr. Carrot in Plants vs Brainrots?</h3>
+                        <p>Yes if you have Los Tralaleritos ready to fuse Plants vs Brainrots' best combo. This PvB fuse creates more income than combat ever could. Just keep backup plants before you fuse Plants vs Brainrots legendaries.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="fusion-future">
+            <div class="container">
+                <h2>Future Plants vs Brainrots Fuse Updates</h2>
+                <p>The PvB fuse system keeps evolving with updates. Developers plan features to expand how we fuse Plants vs Brainrots components and fix current issues.</p>
+
+                <h3>Confirmed Upcoming Features</h3>
+                <ul>
+                    <li><strong>Tomatiro PvB Fuse:</strong> Finally adding a Plants vs Brainrots fuse recipe for Tomatiro next update</li>
+                    <li><strong>Multiple Machines:</strong> More rebirths may add extra Plants vs Brainrots fuse machines for parallel processing</li>
+                    <li><strong>PvB Fuse Events:</strong> Special times with faster Plants vs Brainrots fuse or bonus properties</li>
+                    <li><strong>Mutation Transfer:</strong> Premium item to keep mutations when you fuse Plants vs Brainrots units</li>
+                </ul>
+
+                <h3>Community-Requested Features</h3>
+                <ul>
+                    <li>Preview Plants vs Brainrots fuse results before committing</li>
+                    <li>Bulk PvB fuse for common recipes</li>
+                    <li>Track your Plants vs Brainrots fuse history</li>
+                    <li>Trade PvB fuse components directly</li>
+                    <li>Catalysts for better Plants vs Brainrots fuse results</li>
+                </ul>
+
+                <h3>Staying Updated</h3>
+                <p>Join the Discord for Plants vs Brainrots fuse updates and new PvB fuse discoveries. The community finds new ways to fuse Plants vs Brainrots components within hours of patches. Bookmark for updates on PvB fuse content.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="/codes">Latest Codes</a></li>
+                        <li><a href="/gameplay">How to Play</a></li>
+                        <li><a href="/help">Help Center</a></li>
+                        <li><a href="/gameplay#beginner">Beginner's Guide</a></li>
+                        <li><a href="https://www.roblox.com/games/127742093697776/Plants-Vs-Brainrots" target="_blank" rel="noopener">Play Game</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Game Guides</h4>
+                    <ul>
+                        <li><a href="/plants">All Plants</a></li>
+                        <li><a href="/brainrots">All Brainrots</a></li>
+                        <li><a href="/bosses">Boss Strategies</a></li>
+                        <li><a href="/fusion">Fusion Recipes</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Game Systems</h4>
+                    <ul>
+                        <li><a href="/rebirth">Rebirth Guide</a></li>
+                        <li><a href="/brainrots#income">Income Strategy</a></li>
+                        <li><a href="/gameplay#tips">Tips & Tricks</a></li>
+                        <li><a href="/codes#how-to-redeem">Redeem Codes</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Community</h4>
+                    <ul>
+                        <li><a href="https://discord.gg/plantsvbrainrots" target="_blank" rel="noopener">Discord Server</a></li>
+                        <li><a href="https://twitter.com/plantsvbrainrots" target="_blank" rel="noopener">Twitter</a></li>
+                        <li><a href="/about">About Us</a></li>
+                        <li><a href="/about#contact">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 PlantsVsBrainrotsCodes.com - Not affiliated with Yo Gurt Studio or Roblox Corporation</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
