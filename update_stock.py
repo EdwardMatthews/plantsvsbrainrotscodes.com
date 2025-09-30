@@ -356,7 +356,8 @@ def update_stock_html(api_data: List[Dict[str, Any]]):
 
         # Replace placeholders with timestamp data attribute
         # Find and replace the update time with data attribute
-        update_time_pattern = r'<div class="update-time">[^<]+</div>'
+        # Pattern matches both with and without data-utc attribute
+        update_time_pattern = r'<div class="update-time"[^>]*>[^<]+</div>'
         update_time_replacement = f'<div class="update-time" data-utc="{iso_timestamp}">Last Updated: {formatted_time}</div>'
         html_content = re.sub(update_time_pattern, update_time_replacement, html_content)
 
