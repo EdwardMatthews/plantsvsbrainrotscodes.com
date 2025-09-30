@@ -7,15 +7,18 @@
 }
 
 .nav-dropdown > a {
-    display: flex;
+    display: inline-flex;
     align-items: center;
-    gap: 0.25rem;
+    gap: 0.35rem;
+    white-space: nowrap;
 }
 
 .nav-dropdown > a::after {
     content: '▾';
     font-size: 0.8em;
     transition: transform 0.3s ease;
+    display: inline-block;
+    margin-left: 0.2rem;
 }
 
 .nav-dropdown:hover > a::after {
@@ -26,7 +29,7 @@
 .dropdown-menu {
     display: none;
     position: absolute;
-    top: 100%;
+    top: calc(100% + 5px);
     left: 0;
     background: rgba(17, 24, 39, 0.98);
     backdrop-filter: blur(10px);
@@ -36,7 +39,21 @@
     border: 1px solid rgba(255, 255, 255, 0.1);
     padding: 0.5rem 0;
     z-index: 1000;
-    margin-top: 0.5rem;
+}
+
+/* Invisible bridge to maintain hover */
+.nav-dropdown::before {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    height: 10px;
+    display: none;
+}
+
+.nav-dropdown:hover::before {
+    display: block;
 }
 
 .dropdown-menu::before {
@@ -73,8 +90,9 @@
     font-weight: 600;
 }
 
-/* Show dropdown on hover */
-.nav-dropdown:hover .dropdown-menu {
+/* Show dropdown on hover with improved UX */
+.nav-dropdown:hover .dropdown-menu,
+.dropdown-menu:hover {
     display: block;
     animation: dropdownFadeIn 0.3s ease;
 }
