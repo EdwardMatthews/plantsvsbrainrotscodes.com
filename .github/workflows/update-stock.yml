@@ -59,10 +59,11 @@ jobs:
 
           # Commit the changes
           git add stock.html
-          git commit -m "🔄 Auto-update stock tracker [skip ci]
+          git commit -m "🔄 Auto-update stock tracker
 
           Updated at: $(date -u '+%Y-%m-%d %H:%M:%S UTC')
-          Source: George's Shop API"
+          Source: George's Shop API
+          Deploy: true"
 
           # Push with retry logic
           for i in 1 2 3; do
