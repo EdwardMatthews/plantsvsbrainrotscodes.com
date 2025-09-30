@@ -56,5 +56,6 @@ Allow: /rebirth
 Allow: /help
 Allow: /wiki
 Allow: /about
+Allow: /script
 Allow: /privacy
 Allow: /terms
