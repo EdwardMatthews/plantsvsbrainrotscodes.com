@@ -40,6 +40,10 @@
     background: linear-gradient(135deg, #FF006E 0%, #6A0DAD 100%);
 }
 
+.script-header {
+    background: linear-gradient(135deg, #FF006E 0%, #CC0056 100%);
+}
+
 /* Breadcrumb navigation */
 .breadcrumb {
     padding: 1rem 0;
