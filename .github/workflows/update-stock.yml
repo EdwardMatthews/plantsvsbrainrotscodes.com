@@ -48,9 +48,16 @@ jobs:
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
 
-          # Pull latest changes first to avoid conflicts
+          # Stash local changes first
+          git stash push -m "Stock updates" stock.html
+
+          # Pull latest changes
           git pull --rebase origin main
 
+          # Apply stashed changes
+          git stash pop
+
+          # Commit the changes
           git add stock.html
           git commit -m "🔄 Auto-update stock tracker [skip ci]
 
@@ -59,8 +66,14 @@ jobs:
 
           # Push with retry logic
           for i in 1 2 3; do
-            git push && break
-            echo "Push failed, attempt $i of 3"
-            sleep 2
-            git pull --rebase origin main
+            git push && break || {
+              echo "Push failed, attempt $i of 3"
+              if [ $i -lt 3 ]; then
+                sleep 2
+                git pull --rebase origin main
+              else
+                echo "Failed to push after 3 attempts"
+                exit 1
+              fi
+            }
           done
