@@ -47,9 +47,20 @@ jobs:
         run: |
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
+
+          # Pull latest changes first to avoid conflicts
+          git pull --rebase origin main
+
           git add stock.html
           git commit -m "🔄 Auto-update stock tracker [skip ci]
 
           Updated at: $(date -u '+%Y-%m-%d %H:%M:%S UTC')
           Source: George's Shop API"
-          git push
+
+          # Push with retry logic
+          for i in 1 2 3; do
+            git push && break
+            echo "Push failed, attempt $i of 3"
+            sleep 2
+            git pull --rebase origin main
+          done
