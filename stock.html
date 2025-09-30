@@ -1,0 +1,1215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plants vs Brainrots Stock Tracker - Live George Shop Inventory</title>
+    <meta name="description" content="Plants vs Brainrots stock tracker monitors George's shop inventory in real-time. Track seed availability, rare drops, and gear stock updated every 5 minutes.">
+    <meta name="keywords" content="plants vs brainrots stock, pvb stock tracker, george shop, pvb seeds, plants vs brainrots inventory, plants vs brainrots stock market">
+    <meta property="og:title" content="Plants vs Brainrots Stock Tracker - George's Shop Monitor">
+    <meta property="og:description" content="Real-time Plants vs Brainrots stock tracking for George's shop. Never miss rare seeds with automatic 5-minute updates.">
+    <meta property="og:url" content="https://plantsvsbrainrotscodes.com/stock">
+    <meta property="og:type" content="website">
+    <link rel="canonical" href="https://plantsvsbrainrotscodes.com/stock">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/navigation.css">
+    <style>
+        .stock-container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+        .update-info {
+            background: rgba(0, 220, 130, 0.1);
+            border: 1px solid rgba(0, 220, 130, 0.3);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+        .update-info h2 {
+            color: #00DC82;
+            margin-bottom: 0.5rem;
+        }
+        .update-time {
+            font-size: 1.1rem;
+            color: #FFD23F;
+            font-weight: bold;
+        }
+        .next-update {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.8);
+            margin-top: 0.5rem;
+        }
+        .stock-grid {
+            display: grid;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        .stock-section {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            padding: 1.5rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .stock-section h3 {
+            color: #00DC82;
+            margin-bottom: 1.5rem;
+            font-size: 1.3rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .stock-items {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1rem;
+        }
+        .stock-item {
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 10px;
+            padding: 1.25rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        .stock-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 220, 130, 0.2);
+            border-color: rgba(0, 220, 130, 0.5);
+        }
+        .stock-item.out-of-stock {
+            opacity: 0.6;
+            border-color: rgba(255, 255, 255, 0.05);
+        }
+        .stock-item.out-of-stock::after {
+            content: 'OUT OF STOCK';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(-45deg);
+            color: #FF006E;
+            font-weight: bold;
+            font-size: 1.5rem;
+            opacity: 0.3;
+            letter-spacing: 2px;
+        }
+        .item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.75rem;
+        }
+        .item-name {
+            font-weight: 600;
+            font-size: 1.1rem;
+            color: #fff;
+        }
+        .item-rarity {
+            padding: 0.25rem 0.5rem;
+            border-radius: 6px;
+            font-size: 0.75rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .rarity-common {
+            background: rgba(100, 116, 139, 0.2);
+            color: #94a3b8;
+            border: 1px solid rgba(100, 116, 139, 0.4);
+        }
+        .rarity-uncommon {
+            background: rgba(0, 180, 216, 0.2);
+            color: #00B4D8;
+            border: 1px solid rgba(0, 180, 216, 0.4);
+        }
+        .rarity-rare {
+            background: rgba(0, 220, 130, 0.2);
+            color: #00DC82;
+            border: 1px solid rgba(0, 220, 130, 0.4);
+        }
+        .rarity-epic {
+            background: rgba(106, 13, 173, 0.2);
+            color: #a855f7;
+            border: 1px solid rgba(106, 13, 173, 0.4);
+        }
+        .rarity-legendary {
+            background: rgba(255, 210, 63, 0.2);
+            color: #FFD23F;
+            border: 1px solid rgba(255, 210, 63, 0.4);
+        }
+        .rarity-mythic {
+            background: rgba(255, 0, 110, 0.2);
+            color: #FF006E;
+            border: 1px solid rgba(255, 0, 110, 0.4);
+        }
+        .rarity-secret {
+            background: linear-gradient(135deg, rgba(255, 0, 110, 0.2), rgba(0, 220, 130, 0.2));
+            color: #fff;
+            border: 1px solid transparent;
+            background-clip: padding-box;
+            position: relative;
+        }
+        .rarity-secret::before {
+            content: '';
+            position: absolute;
+            inset: -1px;
+            background: linear-gradient(135deg, #FF006E, #00DC82);
+            border-radius: 6px;
+            z-index: -1;
+        }
+        .item-details {
+            display: grid;
+            gap: 0.5rem;
+        }
+        .detail-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.5rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .detail-row:last-child {
+            border-bottom: none;
+        }
+        .detail-label {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.9rem;
+        }
+        .detail-value {
+            font-weight: 600;
+            color: #fff;
+        }
+        .stock-count {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .stock-indicator {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+        .stock-high {
+            background: #00DC82;
+        }
+        .stock-medium {
+            background: #FFD23F;
+        }
+        .stock-low {
+            background: #FF006E;
+        }
+        @keyframes pulse {
+            0%, 100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+            50% {
+                opacity: 0.7;
+                transform: scale(1.2);
+            }
+        }
+        .info-banner {
+            background: linear-gradient(135deg, rgba(0, 220, 130, 0.05), rgba(0, 180, 216, 0.03));
+            border: 1px solid rgba(0, 220, 130, 0.2);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        .info-banner p {
+            color: rgba(255, 255, 255, 0.9);
+            line-height: 1.6;
+            margin: 0;
+        }
+        .info-banner strong {
+            color: #00DC82;
+        }
+        .empty-state {
+            text-align: center;
+            padding: 3rem 1rem;
+            color: rgba(255, 255, 255, 0.6);
+        }
+        .empty-state h4 {
+            color: #FFD23F;
+            margin-bottom: 1rem;
+        }
+
+        /* New sections styles */
+        .content-section {
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .content-section h2 {
+            color: #00DC82;
+            margin-bottom: 1.5rem;
+            font-size: 1.6rem;
+            border-bottom: 2px solid rgba(0, 220, 130, 0.3);
+            padding-bottom: 0.75rem;
+        }
+        .content-section h3 {
+            color: #00B4D8;
+            margin-top: 1.5rem;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+        .content-section p {
+            line-height: 1.7;
+            color: rgba(255, 255, 255, 0.85);
+            margin-bottom: 1rem;
+        }
+        .content-section ul {
+            list-style: none;
+            padding: 0;
+            margin: 1rem 0;
+        }
+        .content-section ul li {
+            padding: 0.75rem 0;
+            padding-left: 2rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            position: relative;
+            color: rgba(255, 255, 255, 0.85);
+        }
+        .content-section ul li:before {
+            content: '▸';
+            position: absolute;
+            left: 0.5rem;
+            color: #FFD23F;
+            font-weight: bold;
+        }
+        .content-section ul li:last-child {
+            border-bottom: none;
+        }
+        .how-to-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+        .step-card {
+            background: rgba(0, 220, 130, 0.05);
+            border: 1px solid rgba(0, 220, 130, 0.2);
+            border-radius: 10px;
+            padding: 1.5rem;
+            position: relative;
+        }
+        .step-number {
+            position: absolute;
+            top: -12px;
+            left: 20px;
+            background: linear-gradient(135deg, #00DC82, #00B4D8);
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+        .step-card h4 {
+            color: #FFD23F;
+            margin-top: 0.5rem;
+            margin-bottom: 0.75rem;
+        }
+        .faq-item {
+            margin-bottom: 1.5rem;
+            padding: 1.25rem;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .faq-question {
+            font-weight: 600;
+            color: #00DC82;
+            margin-bottom: 0.75rem;
+            font-size: 1.1rem;
+        }
+        .faq-answer {
+            color: rgba(255, 255, 255, 0.85);
+            line-height: 1.6;
+        }
+        .stock-legend {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .legend-indicator {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+        .legend-text {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.95rem;
+        }
+
+        /* History Section Styles */
+        .history-section {
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 12px;
+            padding: 2rem;
+            margin: 2rem 0;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .history-section h2 {
+            color: #00DC82;
+            margin-bottom: 0.5rem;
+            font-size: 1.5rem;
+        }
+        .history-description {
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+        }
+        .history-container {
+            display: grid;
+            gap: 1rem;
+        }
+        .history-entry {
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 1.25rem;
+            transition: all 0.3s ease;
+        }
+        .history-entry:hover {
+            transform: translateX(2px);
+            border-color: rgba(0, 220, 130, 0.3);
+            box-shadow: 0 3px 10px rgba(0, 220, 130, 0.1);
+        }
+        .history-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .history-time {
+            display: flex;
+            align-items: baseline;
+            gap: 0.5rem;
+        }
+        .history-time strong {
+            color: #FFD23F;
+            font-size: 1.1rem;
+        }
+        .history-time small {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.85rem;
+        }
+        .history-stats {
+            display: flex;
+            gap: 0.75rem;
+        }
+        .stat-badge {
+            background: rgba(0, 220, 130, 0.1);
+            padding: 0.25rem 0.6rem;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.9);
+            border: 1px solid rgba(0, 220, 130, 0.2);
+        }
+        .history-content {
+            display: grid;
+            gap: 0.75rem;
+        }
+        .history-category {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+        .category-label {
+            font-weight: 600;
+            color: #00B4D8;
+            font-size: 0.95rem;
+        }
+        .history-items {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            align-items: center;
+            margin-top: 0.5rem;
+        }
+        .history-item-badge {
+            padding: 0.2rem 0.5rem;
+            border-radius: 5px;
+            font-size: 0.8rem;
+            white-space: nowrap;
+            border: 1px solid;
+        }
+        .history-item-badge.rarity-common {
+            background: rgba(100, 116, 139, 0.15);
+            color: #94a3b8;
+            border-color: rgba(100, 116, 139, 0.3);
+        }
+        .history-item-badge.rarity-uncommon {
+            background: rgba(0, 180, 216, 0.15);
+            color: #00B4D8;
+            border-color: rgba(0, 180, 216, 0.3);
+        }
+        .history-item-badge.rarity-rare {
+            background: rgba(0, 220, 130, 0.15);
+            color: #00DC82;
+            border-color: rgba(0, 220, 130, 0.3);
+        }
+        .history-item-badge.rarity-epic {
+            background: rgba(106, 13, 173, 0.15);
+            color: #a855f7;
+            border-color: rgba(106, 13, 173, 0.3);
+        }
+        .history-item-badge.rarity-legendary {
+            background: rgba(255, 210, 63, 0.15);
+            color: #FFD23F;
+            border-color: rgba(255, 210, 63, 0.3);
+        }
+        .history-item-badge.rarity-mythic {
+            background: rgba(255, 0, 110, 0.15);
+            color: #FF006E;
+            border-color: rgba(255, 0, 110, 0.3);
+        }
+        .history-item-badge.rarity-secret {
+            background: linear-gradient(135deg, rgba(255, 0, 110, 0.15), rgba(0, 220, 130, 0.15));
+            color: #fff;
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+        .history-item-more {
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 0.8rem;
+            font-style: italic;
+        }
+        .empty-history {
+            color: rgba(255, 255, 255, 0.4);
+            font-style: italic;
+            font-size: 0.9rem;
+        }
+
+        /* Expand/Collapse Button Styles */
+        .expand-btn {
+            background: rgba(0, 220, 130, 0.1);
+            border: 1px solid rgba(0, 220, 130, 0.3);
+            color: #00DC82;
+            padding: 0.2rem 0.6rem;
+            border-radius: 5px;
+            font-size: 0.8rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            margin-left: 0.5rem;
+            white-space: nowrap;
+        }
+        .expand-btn:hover {
+            background: rgba(0, 220, 130, 0.2);
+            border-color: rgba(0, 220, 130, 0.5);
+            transform: translateY(-1px);
+        }
+        .items-collapsed, .items-expanded {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            align-items: center;
+        }
+
+        @media (max-width: 768px) {
+            .stock-items {
+                grid-template-columns: 1fr;
+            }
+            .how-to-steps {
+                grid-template-columns: 1fr;
+            }
+            .stock-legend {
+                grid-template-columns: 1fr;
+            }
+            .history-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.75rem;
+            }
+            .history-stats {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <a href="/">Plants vs Brainrots Codes</a>
+            </div>
+            <button class="nav-toggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+                        <ul class="nav-menu">
+                <li><a href="/" >Home</a></li>
+                <li><a href="/codes" >Codes</a></li>
+                <li><a href="/wiki" >Wiki</a></li>
+                <li><a href="/stock" class="active">Stock Tracker</a></li>
+                <li class="nav-dropdown">
+                    <a href="#" onclick="return false;">Game Guides</a>
+                    <div class="dropdown-menu">
+                        <a href="/gameplay" >How to Play</a>
+                        <a href="/plants" >All Plants</a>
+                        <a href="/brainrots" >All Brainrots</a>
+                        <a href="/bosses" >Boss Strategies</a>
+                        <a href="/fusion" >Fusion Guide</a>
+                        <a href="/rebirth" >Rebirth System</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="hero-section">
+        <div class="container">
+            <h1>🌱 Plants vs Brainrots Stock Tracker</h1>
+            <p>Real-Time George's Shop Inventory Monitor</p>
+        </div>
+    </div>
+
+    <main class="stock-container">
+        <div class="update-info">
+            <h2>📊 Current Stock Status</h2>
+            <div class="update-time" data-utc="2025-09-30T08:05:09.580000+00:00">Last Updated: September 30, 2025 at 04:05 AM EST</div>
+            <div class="next-update">Next automatic update in ~5 minutes</div>
+        </div>
+
+        <div class="stock-grid">
+
+        <div class="stock-section">
+            <h3>🌱 Seeds</h3>
+            <div class="stock-items">
+
+            <div class="stock-item ">
+                <div class="item-header">
+                    <span class="item-name">Dragon Fruit</span>
+                    <span class="item-rarity rarity-common">Common</span>
+                </div>
+                <div class="item-details">
+                    <div class="detail-row">
+                        <span class="detail-label">Stock:</span>
+                        <div class="stock-count">
+                            <span class="stock-indicator stock-low"></span>
+                            <span class="detail-value">1</span>
+                        </div>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">Status:</span>
+                        <span class="detail-value" style="color: #00DC82;">
+                            Available
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="stock-item ">
+                <div class="item-header">
+                    <span class="item-name">Pumpkin</span>
+                    <span class="item-rarity rarity-common">Common</span>
+                </div>
+                <div class="item-details">
+                    <div class="detail-row">
+                        <span class="detail-label">Stock:</span>
+                        <div class="stock-count">
+                            <span class="stock-indicator stock-medium"></span>
+                            <span class="detail-value">2</span>
+                        </div>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">Status:</span>
+                        <span class="detail-value" style="color: #00DC82;">
+                            Available
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="stock-item ">
+                <div class="item-header">
+                    <span class="item-name">Strawberry</span>
+                    <span class="item-rarity rarity-common">Common</span>
+                </div>
+                <div class="item-details">
+                    <div class="detail-row">
+                        <span class="detail-label">Stock:</span>
+                        <div class="stock-count">
+                            <span class="stock-indicator stock-high"></span>
+                            <span class="detail-value">3</span>
+                        </div>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">Status:</span>
+                        <span class="detail-value" style="color: #00DC82;">
+                            Available
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="stock-item ">
+                <div class="item-header">
+                    <span class="item-name">Sunflower</span>
+                    <span class="item-rarity rarity-common">Common</span>
+                </div>
+                <div class="item-details">
+                    <div class="detail-row">
+                        <span class="detail-label">Stock:</span>
+                        <div class="stock-count">
+                            <span class="stock-indicator stock-high"></span>
+                            <span class="detail-value">3</span>
+                        </div>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">Status:</span>
+                        <span class="detail-value" style="color: #00DC82;">
+                            Available
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="stock-item ">
+                <div class="item-header">
+                    <span class="item-name">Cactus</span>
+                    <span class="item-rarity rarity-common">Common</span>
+                </div>
+                <div class="item-details">
+                    <div class="detail-row">
+                        <span class="detail-label">Stock:</span>
+                        <div class="stock-count">
+                            <span class="stock-indicator stock-high"></span>
+                            <span class="detail-value">4</span>
+                        </div>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">Status:</span>
+                        <span class="detail-value" style="color: #00DC82;">
+                            Available
+                        </span>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </div>
+
+        <div class="stock-section">
+            <h3>⚔️ Gear</h3>
+            <div class="stock-items">
+
+            <div class="stock-item ">
+                <div class="item-header">
+                    <span class="item-name">Banana Gun</span>
+                    <span class="item-rarity rarity-common">Common</span>
+                </div>
+                <div class="item-details">
+                    <div class="detail-row">
+                        <span class="detail-label">Stock:</span>
+                        <div class="stock-count">
+                            <span class="stock-indicator stock-low"></span>
+                            <span class="detail-value">1</span>
+                        </div>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">Status:</span>
+                        <span class="detail-value" style="color: #00DC82;">
+                            Available
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="stock-item ">
+                <div class="item-header">
+                    <span class="item-name">Frost Blower</span>
+                    <span class="item-rarity rarity-uncommon">Uncommon</span>
+                </div>
+                <div class="item-details">
+                    <div class="detail-row">
+                        <span class="detail-label">Stock:</span>
+                        <div class="stock-count">
+                            <span class="stock-indicator stock-low"></span>
+                            <span class="detail-value">1</span>
+                        </div>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">Status:</span>
+                        <span class="detail-value" style="color: #00DC82;">
+                            Available
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="stock-item ">
+                <div class="item-header">
+                    <span class="item-name">Frost Grenade</span>
+                    <span class="item-rarity rarity-common">Common</span>
+                </div>
+                <div class="item-details">
+                    <div class="detail-row">
+                        <span class="detail-label">Stock:</span>
+                        <div class="stock-count">
+                            <span class="stock-indicator stock-high"></span>
+                            <span class="detail-value">3</span>
+                        </div>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">Status:</span>
+                        <span class="detail-value" style="color: #00DC82;">
+                            Available
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="stock-item ">
+                <div class="item-header">
+                    <span class="item-name">Water Bucket</span>
+                    <span class="item-rarity rarity-common">Common</span>
+                </div>
+                <div class="item-details">
+                    <div class="detail-row">
+                        <span class="detail-label">Stock:</span>
+                        <div class="stock-count">
+                            <span class="stock-indicator stock-high"></span>
+                            <span class="detail-value">3</span>
+                        </div>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">Status:</span>
+                        <span class="detail-value" style="color: #00DC82;">
+                            Available
+                        </span>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </div>
+        </div>
+
+        
+        <section class="history-section">
+            <h2>📜 Recent Stock History</h2>
+            <p class="history-description">Last 4 stock updates from George's shop</p>
+            <div class="history-container">
+                
+        <div class="history-entry">
+            <div class="history-header">
+                <span class="history-time" data-utc="2025-09-30T08:00:10.992000+00:00">
+                    <strong class="time-value">04:00 AM</strong>
+                    <small class="date-value">Sep 30</small>
+                </span>
+                <span class="history-stats">
+                    <span class="stat-badge">📦 7 items</span>
+                    <span class="stat-badge">∑ 19 stock</span>
+                </span>
+            </div>
+            <div class="history-content">
+                <div class="history-category">
+                    <span class="category-label">🌱 Seeds (4):</span>
+                    <div class="history-items">
+                        <span class="history-item-badge rarity-common">Sunflower (2)</span> <span class="history-item-badge rarity-common">Pumpkin (3)</span> <span class="history-item-badge rarity-common">Strawberry (3)</span> <span class="history-item-badge rarity-common">Cactus (4)</span>
+                    </div>
+                </div>
+                <div class="history-category">
+                    <span class="category-label">⚔️ Gear (3):</span>
+                    <div class="history-items">
+                        <span class="history-item-badge rarity-common">Banana Gun (1)</span> <span class="history-item-badge rarity-common">Frost Grenade (3)</span> <span class="history-item-badge rarity-common">Water Bucket (3)</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="history-entry">
+            <div class="history-header">
+                <span class="history-time" data-utc="2025-09-30T07:55:07.373000+00:00">
+                    <strong class="time-value">03:55 AM</strong>
+                    <small class="date-value">Sep 30</small>
+                </span>
+                <span class="history-stats">
+                    <span class="stat-badge">📦 8 items</span>
+                    <span class="stat-badge">∑ 20 stock</span>
+                </span>
+            </div>
+            <div class="history-content">
+                <div class="history-category">
+                    <span class="category-label">🌱 Seeds (4):</span>
+                    <div class="history-items">
+                        <span class="history-item-badge rarity-common">Sunflower (2)</span> <span class="history-item-badge rarity-common">Pumpkin (2)</span> <span class="history-item-badge rarity-common">Strawberry (3)</span> <span class="history-item-badge rarity-common">Cactus (5)</span>
+                    </div>
+                </div>
+                <div class="history-category">
+                    <span class="category-label">⚔️ Gear (4):</span>
+                    <div class="history-items">
+                        <span class="history-item-badge rarity-common">Carrot Launcher (1)</span> <span class="history-item-badge rarity-common">Banana Gun (1)</span> <span class="history-item-badge rarity-common">Frost Grenade (3)</span> <span class="history-item-badge rarity-common">Water Bucket (3)</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="history-entry">
+            <div class="history-header">
+                <span class="history-time" data-utc="2025-09-30T07:50:08.279000+00:00">
+                    <strong class="time-value">03:50 AM</strong>
+                    <small class="date-value">Sep 30</small>
+                </span>
+                <span class="history-stats">
+                    <span class="stat-badge">📦 7 items</span>
+                    <span class="stat-badge">∑ 18 stock</span>
+                </span>
+            </div>
+            <div class="history-content">
+                <div class="history-category">
+                    <span class="category-label">🌱 Seeds (4):</span>
+                    <div class="history-items">
+                        <span class="history-item-badge rarity-common">Sunflower (2)</span> <span class="history-item-badge rarity-common">Pumpkin (2)</span> <span class="history-item-badge rarity-common">Strawberry (3)</span> <span class="history-item-badge rarity-common">Cactus (4)</span>
+                    </div>
+                </div>
+                <div class="history-category">
+                    <span class="category-label">⚔️ Gear (3):</span>
+                    <div class="history-items">
+                        <span class="history-item-badge rarity-common">Banana Gun (1)</span> <span class="history-item-badge rarity-common">Frost Grenade (3)</span> <span class="history-item-badge rarity-common">Water Bucket (3)</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="history-entry">
+            <div class="history-header">
+                <span class="history-time" data-utc="2025-09-30T07:45:08.843000+00:00">
+                    <strong class="time-value">03:45 AM</strong>
+                    <small class="date-value">Sep 30</small>
+                </span>
+                <span class="history-stats">
+                    <span class="stat-badge">📦 9 items</span>
+                    <span class="stat-badge">∑ 22 stock</span>
+                </span>
+            </div>
+            <div class="history-content">
+                <div class="history-category">
+                    <span class="category-label">🌱 Seeds (6):</span>
+                    <div class="history-items">
+                        <span class="history-item-badge rarity-uncommon">Eggplant (1)</span> <span class="history-item-badge rarity-common">Dragon Fruit (1)</span> <span class="history-item-badge rarity-common">Sunflower (2)</span> <span class="history-item-badge rarity-common">Pumpkin (2)</span> <span class="history-item-badge rarity-common">Strawberry (3)</span> <span class="history-item-badge rarity-common">Cactus (4)</span>
+                    </div>
+                </div>
+                <div class="history-category">
+                    <span class="category-label">⚔️ Gear (3):</span>
+                    <div class="history-items">
+                        <span class="history-item-badge rarity-common">Banana Gun (1)</span> <span class="history-item-badge rarity-common">Frost Grenade (3)</span> <span class="history-item-badge rarity-common">Water Bucket (5)</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <h2>Understanding Plants vs Brainrots Stock System</h2>
+            <p>The Plants vs Brainrots stock system represents the real-time inventory of George's Shop, a crucial NPC merchant in the game. George operates a rotating shop that refreshes every 5 minutes with randomized seeds and gear. Unlike traditional game shops with unlimited inventory, George's stock is limited - each item appears with only 1-4 units available, creating a competitive marketplace where timing determines success.</p>
+
+            <h3>What Makes Stock Tracking Essential</h3>
+            <p>In Plants vs Brainrots, George's shop serves as the primary source for acquiring new plants and equipment beyond basic gameplay rewards. The shop's inventory system creates several challenges that make tracking essential for serious players:</p>
+
+            <ul>
+                <li>Rare seeds (Epic, Legendary, Mythic) appear randomly with extremely low frequency - sometimes once per hour</li>
+                <li>Popular items sell out within 30-60 seconds of appearing, especially during peak hours</li>
+                <li>Stock refreshes occur exactly every 5 minutes, but inventory is completely randomized each time</li>
+                <li>Missing a rare seed could mean waiting hours or days for it to reappear</li>
+                <li>Prices vary significantly based on rarity, from $100 for common seeds to $50,000 for secret tier</li>
+            </ul>
+
+            <h3>Stock Categories and Rarity Distribution</h3>
+            <p>George's inventory consists of two main categories, each with distinct characteristics affecting Plants vs Brainrots stock availability:</p>
+            <ul>
+                <li><strong>Seeds:</strong> Plant units for tower defense, ranging from Common to Secret rarity</li>
+                <li><strong>Gear:</strong> Equipment items providing gameplay advantages and special abilities</li>
+            </ul>
+        </section>
+
+        <section class="content-section">
+            <h2>How to Use the Stock Tracker</h2>
+            <p>This Plants vs Brainrots stock tracker provides automated monitoring of George's shop inventory. The system checks the game's stock API every 5 minutes and updates this page with current availability. Here's how to maximize its effectiveness:</p>
+
+            <div class="how-to-steps">
+                <div class="step-card">
+                    <span class="step-number">1</span>
+                    <h4>Check Update Time</h4>
+                    <p>Look at the "Last Updated" timestamp to ensure you're viewing current stock data. Updates occur every 5 minutes automatically.</p>
+                </div>
+                <div class="step-card">
+                    <span class="step-number">2</span>
+                    <h4>Monitor Stock Levels</h4>
+                    <p>Watch the colored indicators - red means only 1 left, yellow shows 2 remaining, green indicates 3+ available.</p>
+                </div>
+                <div class="step-card">
+                    <span class="step-number">3</span>
+                    <h4>Identify Rarity</h4>
+                    <p>Check item rarity badges to prioritize purchases. Secret and Mythic items are extremely valuable.</p>
+                </div>
+                <div class="step-card">
+                    <span class="step-number">4</span>
+                    <h4>Act Quickly</h4>
+                    <p>When rare items appear with low stock, purchase immediately in-game before they sell out.</p>
+                </div>
+            </div>
+
+            <h3>Stock Level Indicators</h3>
+            <div class="stock-legend">
+                <div class="legend-item">
+                    <span class="legend-indicator stock-high"></span>
+                    <span class="legend-text">High Stock (3+ units) - Safe to purchase</span>
+                </div>
+                <div class="legend-item">
+                    <span class="legend-indicator stock-medium"></span>
+                    <span class="legend-text">Medium Stock (2 units) - Purchase soon</span>
+                </div>
+                <div class="legend-item">
+                    <span class="legend-indicator stock-low"></span>
+                    <span class="legend-text">Low Stock (1 unit) - Buy immediately</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <h2>Frequently Asked Questions</h2>
+
+            <div class="faq-item">
+                <div class="faq-question">How accurate is the Plants vs Brainrots stock tracker?</div>
+                <div class="faq-answer">The tracker pulls data directly from the game's API every 5 minutes, matching George's shop refresh cycle. Stock levels shown are accurate at the time of update, though items may sell out between refreshes during peak playing hours.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">Why do some items show as "Out of Stock" immediately after refresh?</div>
+                <div class="faq-answer">High-demand items, especially rare seeds, can sell out within seconds of appearing. The Plants vs Brainrots stock system operates in real-time across all servers, meaning thousands of players compete for limited inventory simultaneously.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">What determines item rarity in George's shop?</div>
+                <div class="faq-answer">Rarity is based on the seed or gear's tier in the game. Common items appear frequently with higher stock, while Secret tier items might appear once every few hours with only 1-2 units available.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">Can I predict when specific items will appear in stock?</div>
+                <div class="faq-answer">No, the Plants vs Brainrots stock system uses complete randomization for each refresh. While refresh times are predictable (every 5 minutes), the actual inventory is entirely random.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">How often should I check this tracker?</div>
+                <div class="faq-answer">For casual players, checking every 15-30 minutes is sufficient. Competitive players seeking rare seeds should monitor the Plants vs Brainrots stock tracker every 5-10 minutes during their play sessions.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">Does the tracker work for all game servers?</div>
+                <div class="faq-answer">Yes, George's shop inventory is synchronized across all Plants vs Brainrots servers. The stock shown here reflects the global inventory available to all players.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">What happens if I miss a rare item?</div>
+                <div class="faq-answer">Missed items will eventually reappear, but timing is unpredictable. Some players report waiting days for specific Secret tier seeds to return to Plants vs Brainrots stock rotation.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">Why is stock tracking better than checking in-game?</div>
+                <div class="faq-answer">This tracker saves time by showing current inventory without logging into the game. You can monitor Plants vs Brainrots stock from any device, receive visual indicators for low stock, and quickly identify rare items worth pursuing.</div>
+            </div>
+        </section>
+
+        <div class="info-banner">
+            <p><strong>Pro Strategy:</strong> Set a timer for 5-minute intervals during your gaming session to check Plants vs Brainrots stock updates. Focus on items with 1-2 stock remaining and prioritize based on your current game progression needs. Remember that Secret and Mythic tier items provide game-changing advantages worth the premium prices.</p>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="/codes">Latest Codes</a></li>
+                        <li><a href="/gameplay">How to Play</a></li>
+                        <li><a href="/help">Help Center</a></li>
+                        <li><a href="/gameplay#beginner">Beginner's Guide</a></li>
+                        <li><a href="https://www.roblox.com/games/127742093697776/Plants-Vs-Brainrots" target="_blank" rel="noopener">Play Game</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Game Guides</h4>
+                    <ul>
+                        <li><a href="/plants">All Plants</a></li>
+                        <li><a href="/brainrots">All Brainrots</a></li>
+                        <li><a href="/bosses">Boss Strategies</a></li>
+                        <li><a href="/fusion">Fusion Recipes</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Game Systems</h4>
+                    <ul>
+                        <li><a href="/rebirth">Rebirth Guide</a></li>
+                        <li><a href="/brainrots#income">Income Strategy</a></li>
+                        <li><a href="/gameplay#tips">Tips & Tricks</a></li>
+                        <li><a href="/codes#how-to-redeem">Redeem Codes</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Community</h4>
+                    <ul>
+                        <li><a href="https://discord.gg/plantsvbrainrots" target="_blank" rel="noopener">Discord Server</a></li>
+                        <li><a href="https://twitter.com/plantsvbrainrots" target="_blank" rel="noopener">Twitter</a></li>
+                        <li><a href="/about">About Us</a></li>
+                        <li><a href="/about#contact">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Plants vs Brainrots Codes. Not affiliated with Roblox Corporation or Yo Gurt Studio.</p>
+                <p>Game content and materials are trademarks of their respective owners.</p>
+                <div class="legal-links">
+                    <a href="/privacy">Privacy Policy</a> |
+                    <a href="/terms">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+
+    <!-- Mobile dropdown navigation -->
+    <script>
+        // Toggle history items expand/collapse
+        function toggleHistoryItems(entryId, category) {
+            const entry = document.querySelector(`[data-entry-id="${entryId}"]`);
+            if (!entry) return;
+
+            const categoryDiv = category === 'seeds' ?
+                entry.querySelector('.history-category:first-child .history-items') :
+                entry.querySelector('.history-category:last-child .history-items');
+
+            if (!categoryDiv) return;
+
+            const collapsed = categoryDiv.querySelector('.items-collapsed');
+            const expanded = categoryDiv.querySelector('.items-expanded');
+
+            if (collapsed && expanded) {
+                if (collapsed.style.display === 'none') {
+                    collapsed.style.display = 'flex';
+                    expanded.style.display = 'none';
+                } else {
+                    collapsed.style.display = 'none';
+                    expanded.style.display = 'flex';
+                }
+            }
+        }
+
+        // Mobile dropdown toggle
+        document.addEventListener('DOMContentLoaded', function() {
+            // Timezone conversion for all timestamps
+            function convertTimesToLocal() {
+                // Get user's timezone
+                const userTimezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+                const userLocale = navigator.language || 'en-US';
+
+                // Convert main update time
+                const mainUpdateTime = document.querySelector('.update-time[data-utc]');
+                if (mainUpdateTime) {
+                    const utcTime = mainUpdateTime.getAttribute('data-utc');
+                    if (utcTime) {
+                        const date = new Date(utcTime);
+                        const options = {
+                            year: 'numeric',
+                            month: 'long',
+                            day: 'numeric',
+                            hour: 'numeric',
+                            minute: '2-digit',
+                            hour12: true,
+                            timeZoneName: 'short'
+                        };
+                        const localTime = date.toLocaleString(userLocale, options);
+                        mainUpdateTime.innerHTML = `Last Updated: ${localTime}`;
+                    }
+                }
+
+                // Convert history times
+                const historyTimes = document.querySelectorAll('.history-time[data-utc]');
+                historyTimes.forEach(timeElement => {
+                    const utcTime = timeElement.getAttribute('data-utc');
+                    if (utcTime) {
+                        const date = new Date(utcTime);
+
+                        // Format time
+                        const timeOptions = {
+                            hour: 'numeric',
+                            minute: '2-digit',
+                            hour12: true
+                        };
+                        const localTime = date.toLocaleString(userLocale, timeOptions);
+
+                        // Format date
+                        const dateOptions = {
+                            month: 'short',
+                            day: 'numeric'
+                        };
+                        const localDate = date.toLocaleString(userLocale, dateOptions);
+
+                        // Update the display
+                        const timeValue = timeElement.querySelector('.time-value');
+                        const dateValue = timeElement.querySelector('.date-value');
+                        if (timeValue) timeValue.textContent = localTime;
+                        if (dateValue) dateValue.textContent = localDate;
+                    }
+                });
+
+                // Add timezone indicator
+                const updateInfo = document.querySelector('.update-info');
+                if (updateInfo && !document.querySelector('.timezone-indicator')) {
+                    const indicator = document.createElement('div');
+                    indicator.className = 'timezone-indicator';
+                    indicator.style.cssText = 'font-size: 0.85rem; color: rgba(255,255,255,0.7); margin-top: 0.5rem;';
+                    indicator.textContent = `Displaying times in your local timezone (${userTimezone})`;
+                    updateInfo.appendChild(indicator);
+                }
+            }
+
+            // Run timezone conversion
+            convertTimesToLocal();
+
+            const dropdowns = document.querySelectorAll('.nav-dropdown > a');
+            dropdowns.forEach(dropdown => {
+                dropdown.addEventListener('click', function(e) {
+                    if (window.innerWidth <= 768) {
+                        e.preventDefault();
+                        const parent = this.parentElement;
+                        parent.classList.toggle('active');
+
+                        // Close other dropdowns
+                        document.querySelectorAll('.nav-dropdown').forEach(other => {
+                            if (other !== parent) {
+                                other.classList.remove('active');
+                            }
+                        });
+                    }
+                });
+            });
+
+            // Close dropdowns when clicking outside
+            document.addEventListener('click', function(e) {
+                if (!e.target.closest('.nav-dropdown')) {
+                    document.querySelectorAll('.nav-dropdown').forEach(dropdown => {
+                        dropdown.classList.remove('active');
+                    });
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>
