@@ -1,0 +1,37 @@
+name: Keep Repository Active
+
+on:
+  schedule:
+    # Run once a week on Sunday at 3 AM UTC
+    - cron: '0 3 * * 0'
+  workflow_dispatch:
+
+jobs:
+  keep-alive:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Keep repository active
+        run: |
+          # Create or update a timestamp file to keep the repository active
+          echo "Last activity: $(date -u '+%Y-%m-%d %H:%M:%S UTC')" > .github/last-activity.txt
+
+          # Configure git
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+
+          # Check if file changed
+          if git diff --exit-code .github/last-activity.txt; then
+            echo "No changes needed"
+          else
+            git add .github/last-activity.txt
+            git commit -m "🤖 Keep repository active [skip ci]
+
+            Automated activity to prevent GitHub Actions from being disabled"
+            git push
+          fi
